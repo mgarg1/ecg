@@ -15,7 +15,9 @@ import time
 # data (12 bits) - byte oriented - first LSB, then MSB
 # 2 LSB bits - 00 - LSB 6 bits
 #              01 - MSB 6 bits
-#              10 - debug out - 6 bits
+#              10 - debug out - 6 bits LSB
+#              11 - debug out - 6 bits MSB
+# waveform is reset when debug value of 4095 is sent
 
 ser = serial.Serial('/dev/ttyUSB0', 115200, timeout=0)
 ser.flushInput()
@@ -51,9 +53,14 @@ def uartread():
                 debugdata += value*64
                 if printdebug:
                     print "Debug data from device: ", debugdata
-
+                if debugdata == 4095:
+                    print "Got command to reset plot . . ."
+                    t = 0
+                    ecgPlot.resetPlot()
         serbuf = ""
+        time.sleep(0.001)
 
 for i in uartread():
     t, val = i
     ecgPlot.addDataPoint(t, [val])
+
