@@ -12,7 +12,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 
 int led = 13; // orange LED
-int analogPin = 8; // analog Pin A8
+int analogInPin = 8; // analog Pin A8
+int analogOutPin = DAC0; // analog Pin DAC
 
 int val, i;
 
@@ -34,22 +35,21 @@ void debugdump(unsigned int val) {
 }
 
 void timerHandler() {
-  val = analogRead(analogPin);
+  val = analogRead(analogInPin);
+  dumpval(val);
+  // saw tooth wave
   i++;
-  if(i == 200)
+  if(i == 100)
     i = 0;
-  if(i < 100) {
-    dumpval(598);
-  }
-  else {
-    dumpval(3014);
-  }
+  analogWrite(analogOutPin, i/2 + 2048);
 }
 
 void setup() {
   Serial1.begin(115200);
   pinMode(led, OUTPUT); // initialize the digital pin as an output.
   Timer.getAvailable().attachInterrupt(timerHandler).start(1000); // call timerHandler once in 1000 us
+  analogWriteResolution(12);
+  analogWrite(analogOutPin, 2048);
   
   debugdump(4095); // reset plot on the visualizer
 }
