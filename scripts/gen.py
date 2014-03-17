@@ -3,7 +3,7 @@ import math
 
 Namp = 10 # number of amplitudes
 Fgen = 50
-Fsample = 10e3
+Fsample = 1e3
 
 Ns = int(Fsample/Fgen)
 
@@ -12,7 +12,7 @@ max_amplitude = 2047
 
 amps = [i*1.0/(Namp) for i in range(1,Namp+1)]
 
-s = "int arr[%s][%s] = {\n" % (Namp, Ns)
+s = "int sine_arr[%s][%s] = {\n" % (Namp, Ns)
 
 for amp in amps:
     s += "    {"

@@ -17,6 +17,10 @@ int analogOutPin = DAC0; // analog Pin DAC
 
 int val, i;
 
+int amp = 0;
+int phase = 0;
+extern int sine_arr[10][20];
+
 void dumpval(unsigned int val) {
     unsigned char lsb = val & 0x3F; // lower 6 bits
     unsigned char msb = (val >> 6) & 0x3F; // upper 6 bits
@@ -38,10 +42,28 @@ void timerHandler() {
   val = analogRead(analogInPin);
   dumpval(val);
   // saw tooth wave
+  int key = Serial1.read();
+  if(key == '1') {
+    if(amp < 9)
+      amp++;
+  }
+  if(key == '2') {
+    if(amp > 0)
+      amp--;
+  }
+  if(key == '3') {
+    i++; // increase phase
+  }
+  if(key == '4') {
+    if(i==0)
+      i = 19;
+    else
+      i--;
+  }
   i++;
-  if(i == 100)
-    i = 0;
-  analogWrite(analogOutPin, 2048);
+  i = i % 20;
+  
+  analogWrite(analogOutPin, sine_arr[amp][i]);
 }
 
 void setup() {

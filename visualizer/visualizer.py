@@ -23,7 +23,10 @@ ser = serial.Serial('/dev/ttyUSB0', 115200, timeout=0)
 ser.flushInput()
 ser.flush()
 
-ecgPlot = streamplot.StreamPlot(saveFileNameStart = "ecg_plot",lines = [('l','r','ecg')], exitforce=True)
+def numKeyPressCallBack(num):
+    ser.write(str(num))
+
+ecgPlot = streamplot.StreamPlot(saveFileNameStart = "ecg_plot",lines = [('l','r','ecg')], exitforce=True, numKeyPressCallBack=numKeyPressCallBack)
 
 Tsample = 1e-3 # in second
 printdebug = True

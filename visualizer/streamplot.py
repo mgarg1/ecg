@@ -36,7 +36,7 @@ def checkPlotClosedAndExit(plot):
             os._exit(0) # force close this process
 
 class StreamPlot():
-    def __init__(self,saveFileNameStart = "test",lines = [('l','g','plotName')],nSamples=100,auto_t=10.0,legend = False, exitforce=False):
+    def __init__(self,saveFileNameStart = "test",lines = [('l','g','plotName')],nSamples=100,auto_t=10.0,legend = False, exitforce=False, numKeyPressCallBack=lambda i: i):
         self.saveFileNameStart = saveFileNameStart 
         self.nSamples = nSamples
         self.n = len(lines)
@@ -79,6 +79,19 @@ class StreamPlot():
         
         action('KeyPress', 'saveVisibleSamples', key='C')
         event('saveVisibleSamples', self.saveVisibleSamples)
+
+        action('KeyPress', 'incAmp1', key='1')
+        event('incAmp1', lambda fig, params: numKeyPressCallBack(1))
+
+        action('KeyPress', 'incAmp2', key='2')
+        event('incAmp2', lambda fig, params: numKeyPressCallBack(2))
+
+        action('KeyPress', 'incAmp3', key='3')
+        event('incAmp3', lambda fig, params: numKeyPressCallBack(3))
+
+        action('KeyPress', 'incAmp4', key='4')
+        event('incAmp4', lambda fig, params: numKeyPressCallBack(4))
+
         
         self.disp_thread = threading.Thread(target=show) # display the plot in a new thread so as to make object creation non-blocking
         self.disp_thread.start()
@@ -86,6 +99,7 @@ class StreamPlot():
         if exitforce:
             thread.start_new_thread(checkPlotClosedAndExit, (self, ))
     
+
     def letterToRGBA(self,s):
         if s == 'r':
             return (1.0,0.0,0.0,1.0)
