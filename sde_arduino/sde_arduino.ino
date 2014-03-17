@@ -41,7 +41,7 @@ void timerHandler() {
   i++;
   if(i == 100)
     i = 0;
-  analogWrite(analogOutPin, i/2 + 2048);
+  analogWrite(analogOutPin, 2048);
 }
 
 void setup() {
