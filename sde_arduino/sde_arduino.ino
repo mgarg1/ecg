@@ -72,6 +72,7 @@ void setup() {
   Timer.getAvailable().attachInterrupt(timerHandler).start(1000); // call timerHandler once in 1000 us
   analogWriteResolution(12);
   analogWrite(analogOutPin, 2048);
+  analogWrite(DAC1, 2048);
   
   debugdump(4095); // reset plot on the visualizer
 }
