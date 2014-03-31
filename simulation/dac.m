@@ -7,11 +7,9 @@ bits = 10;
 Vref = 3.3;
 
 num = round(num); % in case non-integer was passed
-if num <= 0
-    num = 0;
-elseif num >= 2^bits
-    num = 2^bits - 1;
-end
+
+num(num <= 0) = 0; % clipping at GND
+num(num >= 2^bits) = 2^bits - 1; % clipping at VDD
 
 Vout = Vref * num / 2^bits;
 
