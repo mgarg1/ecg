@@ -8,7 +8,7 @@ clear all; close all;
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%
 Fs = 400; % Sample rate
-N = 5000; % Num of samples. Keep above 5000.
+N = 7000; % Num of samples. Keep above 7000.
 %%%%%%%%%%%%%%%%%%%%%%%%%%
 Ka = 1/(0.13 * Fs);
 Kphi = 6e-2;
@@ -20,9 +20,14 @@ eps = 1e-15; % epsilon
 Ts = 1/Fs;
 t = (1:N)'*Ts; % time
 
+% the corrupt signal is initially 0. Then a 49 Hz sine starts, its
+% amplitude steps up, down. Afterwords, the frequency changes abruptly to
+% 51 Hz with an amplitude step. Subsequently, the frequency changes back to
+% 49 Hz with an amplitude step. Finally, the interference drops to 0.
 d = 2*sin(2*pi*49*t); % corrupt signal
 d(1:400) = 0;
 d(2000:3000) = 2*d(2000:3000);
+d(4000:5000) = 3*sin(2*pi*51*Ts*(3000:4000));
 d(end-1000:end) = 0;
 
 e = zeros(size(d)); % error signal (cleaned signal)
