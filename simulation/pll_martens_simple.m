@@ -66,7 +66,9 @@ for k=1:N-1
     eta_a(k) = 2*e(k)*ymod_a(k);
     
     % update estimates
-    thetaa_est(k+1) = thetaa_est(k) + Ka * eta_a(k);
+    if (thetaa_est(k) + Ka * eta_a(k)) > 0
+        thetaa_est(k+1) = thetaa_est(k) + Ka * eta_a(k);
+    end
     if abs(thetadw_est(k) + Kdw * eta_phi(k)) < 4*2*pi/Fs
         thetadw_est(k+1) = thetadw_est(k) + Kdw * eta_phi(k);
     end
