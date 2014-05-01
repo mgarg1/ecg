@@ -1,5 +1,5 @@
 % This script implements adaptive filtering to remove 50 Hz inteference
-% as described in Martens et. al, "Improved Adaptive Line canceller for
+% as described in Martens et. al, "Improved Adaptive Line Canceller for
 % Electrocardiography", IEEE Transactions on Biomedical Engg. The variable
 % names correspond to the symbols used in the paper. Error filtering and
 % adaptation supression are not implemented.
@@ -8,18 +8,23 @@ clear all; close all;
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%
 Fs = 400; % Sample rate
-N = 3000; % Num of samples
+N = 5000; % Num of samples. Keep above 5000.
 %%%%%%%%%%%%%%%%%%%%%%%%%%
 Ka = 1/(0.13 * Fs);
 Kphi = 6e-2;
 Kdw = 9e-4;
 omegan_p = 2*pi*50/Fs; % nominal frequency
+eps = 1e-15; % epsilon
 %%%%%%%%%%%%%%%%%%%%%%%%%%
 
 Ts = 1/Fs;
 t = (1:N)'*Ts; % time
 
 d = 2*sin(2*pi*49*t); % corrupt signal
+d(1:400) = 0;
+d(2000:3000) = 2*d(2000:3000);
+d(end-1000:end) = 0;
+
 e = zeros(size(d)); % error signal (cleaned signal)
 x_est = zeros(size(d)); % inteference estimate
 
@@ -57,11 +62,13 @@ for k=1:N-1
     
     % update estimates
     thetaa_est(k+1) = thetaa_est(k) + Ka * eta_a(k);
-    if (thetadw_est(k) + Kdw * eta_phi(k)) < 4*2*pi/Fs
+    if abs(thetadw_est(k) + Kdw * eta_phi(k)) < 4*2*pi/Fs
         thetadw_est(k+1) = thetadw_est(k) + Kdw * eta_phi(k);
     end
     thetaphi_est(k+1) = thetaphi_est(k) + Kphi * eta_phi(k) + thetadw_est(k);
-    alpha(k+1) = 1/thetaa_est(k+1);
+    if abs(thetaa_est(k+1)) > eps
+        alpha(k+1) = 1/thetaa_est(k+1);
+    end
 
 end
 
