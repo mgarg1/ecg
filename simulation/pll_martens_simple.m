@@ -8,9 +8,9 @@ clear all; close all;
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%
 Fs = 400; % Sample rate
-N = 2000; % Num of samples
+N = 3000; % Num of samples
 %%%%%%%%%%%%%%%%%%%%%%%%%%
-Ka = 1/0.13;
+Ka = 1/(0.13 * Fs);
 Kphi = 6e-2;
 Kdw = 9e-4;
 omegan_p = 2*pi*50/Fs; % nominal frequency
@@ -19,7 +19,7 @@ omegan_p = 2*pi*50/Fs; % nominal frequency
 Ts = 1/Fs;
 t = (1:N)'*Ts; % time
 
-d = sin(2*pi*49*t); % corrupt signal
+d = 2*sin(2*pi*49*t); % corrupt signal
 e = zeros(size(d)); % error signal (cleaned signal)
 x_est = zeros(size(d)); % inteference estimate
 
@@ -65,5 +65,7 @@ for k=1:N-1
 
 end
 
-plot(e);
+plot(d','r');title('corrupt signal');
+figure;
+plot(e);title('filtered signal');
 
