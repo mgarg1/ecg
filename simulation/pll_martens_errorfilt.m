@@ -1,8 +1,8 @@
 % This script implements adaptive filtering to remove 50 Hz inteference
 % as described in Martens et. al, "Improved Adaptive Line Canceller for
 % Electrocardiography", IEEE Transactions on Biomedical Engg. The variable
-% names correspond to the symbols used in the paper. Error filtering and
-% adaptation supression are not implemented.
+% names correspond to the symbols used in the paper. 
+% Adaptation supression are not implemented.
 
 clear all; close all;
 
