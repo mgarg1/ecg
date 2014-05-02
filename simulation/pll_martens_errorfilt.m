@@ -90,6 +90,10 @@ for k=1:N-1
     eta_a(k) = 2*ew(k)*ymodw_a(k);
     
     % update estimates
+    thetaa_est(k+1) = thetaa_est(k);
+    thetadw_est(k+1) = thetadw_est(k);
+    thetaphi_est(k+1) = thetaphi_est(k);
+    
     if (thetaa_est(k) + Ka * eta_a(k)) > 0
         thetaa_est(k+1) = thetaa_est(k) + Ka * eta_a(k);
     end
