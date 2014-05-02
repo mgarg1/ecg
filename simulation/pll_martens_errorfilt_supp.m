@@ -23,9 +23,12 @@ t = (1:N)'*Ts; % time
 b = [1.266 -2.532 1.266]; % error filter numerator
 a = [1 -0.3695 0.1958]; % error filter denominator
 
-s = 10*ones(size(t));% original signal
+s = 0.5*ones(size(t));% original signal
+s(2000:2050) = 0;
 s(4000:6000) = 0;
 x = 2*sin(2*pi*49*t); % corrupt signal
+x(7000:8000) = 2*sin(2*pi*51*Ts*(7000:8000));
+x(9000:10000) = 3*sin(2*pi*49*Ts*(9000:10000));
 
 
 d = x + s; % corrupt signal
@@ -110,7 +113,7 @@ for k=1:N-1
     
 end
 
-figure;plot(s,'k');title('original signal');
+figure;plot(s,'b');title('original signal');
 figure;plot(x,'r');title('Interference signal');
 figure;plot(d','k');title('corrupt signal');
 figure;plot(e,'b');title('filtered signal');
