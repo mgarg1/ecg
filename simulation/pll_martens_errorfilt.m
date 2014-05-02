@@ -19,20 +19,17 @@ eps = 1e-15; % epsilon
 Ts = 1/Fs;
 t = (1:N)'*Ts; % time
 
-b = [3.3519 -6.7038 3.3519]; % error filter numerator
-a = [1 -0.7478 0.2722]; % error filter denominator
+% 2nd order butterworth error filter. fc = 80 Hz, Fs = 400 Hz. 
+% Gain at 50 Hz = 1
+b = [1.266 -2.532 1.266]; % error filter numerator
+a = [1 -0.3695 0.1958]; % error filter denominator
 
-s = 10 + 1.1*sin(2*pi*6*t);
-s(1000:2000) = 0;
-% the interference signal is initially 0. Then a 49 Hz sine starts, its
-% amplitude steps up, down. Afterwords, the frequency changes abruptly to
-% 51 Hz with an amplitude step. Subsequently, the frequency changes back to
-% 49 Hz with an amplitude step. Finally, the interference drops to 0.
+s = 10*ones(size(t)) + 0.2*sin(2*pi*2*t); % original signal
 x = 2*sin(2*pi*49*t); % corrupt signal
-x(4000:5000) = 0;
-x(6000:8000) = 2*x(6000:8000);
-x(8000:10000) = 2*sin(2*pi*51*Ts*(8000:10000));
-x(10000:end) = 0;
+x(1:1000) = 0;
+x(3000:4000) = 2*x(3000:4000);
+x(6000:7000) = 2*sin(2*pi*51*Ts*(6000:7000));
+x(end-1000:end) = 0;
 
 d = x + s; % corrupt signal
 
@@ -107,6 +104,7 @@ for k=1:N-1
 end
 
 figure;plot(s,'k');title('original signal');
-figure;plot(d','r');title('corrupt signal');
+figure;plot(x,'r');title('Interference signal');
+figure;plot(d','k');title('corrupt signal');
 figure;plot(e,'b');title('filtered signal');
 
