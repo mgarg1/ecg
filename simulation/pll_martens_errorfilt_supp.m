@@ -14,6 +14,9 @@ Kphi = 6e-2;
 Kdw = 9e-4;
 omegan_p = 2*pi*50/Fs; % nominal frequency. *dont* change without changing the error filter
 eps = 1e-15; % epsilon
+kx = 80; % threshold computation window
+sppx = 20; % number of samples to suppress
+lock_thresh = 20;
 %%%%%%%%%%%%%%%%%%%%%%%%%%
 Ts = 1/Fs;
 t = (1:N)'*Ts; % time
@@ -22,6 +25,7 @@ t = (1:N)'*Ts; % time
 % Gain at 50 Hz = 1
 b = [1.266 -2.532 1.266]; % error filter numerator
 a = [1 -0.3695 0.1958]; % error filter denominator
+hcomb = [0.5 0 0 0 0 0 0 0 -0.5];
 
 s = 0.5*ones(size(t));% original signal
 s(2000:2050) = 0;
@@ -35,6 +39,7 @@ d = x + s; % corrupt signal
 
 e = zeros(size(d)); % error signal (cleaned signal)
 ew = zeros(size(d)); % filtered error signal
+ew_hcomb = zeros(size(d)); % ew filtered by the comb filter
 x_est = zeros(size(d)); % inteference estimate
 
 ymod_phi = zeros(size(d));
@@ -52,6 +57,11 @@ thetadw_est = zeros(size(d));
 eta_a = zeros(size(d));
 eta_phi = zeros(size(d));
 alpha = zeros(size(d));
+
+adap_supp = zeros(size(d));
+lock_raw = zeros(size(d));
+lock = zeros(size(d));
+thresh = zeros(size(d));
 
 % set initial values
 alpha(1) = 1;
@@ -92,19 +102,54 @@ for k=1:N-1
     % update estimates
     thetaa_est(k+1) = thetaa_est(k);
     thetadw_est(k+1) = thetadw_est(k);
-    thetaphi_est(k+1) = thetaphi_est(k);
+    thetaphi_est(k+1) = thetaphi_est(k) + thetadw_est(k);
     
-    if (k < 3900) || (k > 4100)
-        if (thetaa_est(k) + Ka * eta_a(k)) > 0
-            thetaa_est(k+1) = thetaa_est(k) + Ka * eta_a(k);
+    thetaa_est_new = thetaa_est(k) + Ka * eta_a(k);
+    thetadw_est_new = thetadw_est(k) + Kdw * eta_phi(k);
+    thetaphi_est_new = thetaphi_est(k) + Kphi * eta_phi(k) + thetadw_est(k);
+    
+    % detect if PLL is in lock
+    if (abs((thetaa_est_new - thetaa_est(k))/thetaa_est(k)) < 0.05) && (abs(thetadw_est_new - thetadw_est(k)) < 1e-4)
+        lock_raw(k) = 1;
+    end
+    if k > lock_thresh
+        lock(k) = min(lock_raw(k-lock_thresh:k));
+    end
+    
+    % should adaptation be suppressed ?
+    for it=1:max(size(hcomb))
+        if (k - it + 1) > 0
+            ew_hcomb(k) = ew_hcomb(k) + hcomb(it) * ew(k - it + 1);
+        end
+    end
+    
+    if k > kx
+        thresh(k) = 1.414 * (sum(ew_hcomb(k-kx:k).^2) / kx)^0.5;
+    else
+        thresh(k) = inf;
+    end
+    
+    if abs(ew_hcomb(k)) > thresh(k) && abs(ew_hcomb(k)) > 1e-7
+        for it=0:sppx
+            if k+it <= max(size(adap_supp))
+                adap_supp(k+it) = 1;
+            end
+        end
+    end
+    %if (k >= 4000) && (k < 4100)
+        %adap_supp(k) = 1;
+    %end
+    
+    % perform adaptation if needed
+    if adap_supp(k) == 0
+        if thetaa_est_new > 0
+            thetaa_est(k+1) = thetaa_est_new;
         end
 
-        if abs(thetadw_est(k) + Kdw * eta_phi(k)) < 4*2*pi/Fs
-            thetadw_est(k+1) = thetadw_est(k) + Kdw * eta_phi(k);
+        if abs(thetadw_est_new) < 4*2*pi/Fs
+            thetadw_est(k+1) = thetadw_est_new;
         end
-        thetaphi_est(k+1) = thetaphi_est(k) + Kphi * eta_phi(k) + thetadw_est(k);
-    else
-        thetaphi_est(k+1) = thetaphi_est(k) + thetadw_est(k);
+        thetaphi_est(k+1) = thetaphi_est_new;
     end
     
     if abs(thetaa_est(k+1)) > eps
@@ -117,4 +162,5 @@ figure;plot(s,'b');title('original signal');
 figure;plot(x,'r');title('Interference signal');
 figure;plot(d','k');title('corrupt signal');
 figure;plot(e,'b');title('filtered signal');
+close all; plot(thresh); hold on; plot(ew_hcomb,'r'); plot(adap_supp, 'k');plot(lock,'g');figure;plot(e);
 
