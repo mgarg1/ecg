@@ -26,9 +26,8 @@ b = [1.266 -2.532 1.266]; % error filter numerator
 a = [1 -0.3695 0.1958]; % error filter denominator
 hcomb = [0.5 0 0 0 0 0 0 0 -0.5];
 
-s = 0.5*ones(size(t));% original signal
-s(2000:2050) = 0;
-s(4000:6000) = 0;
+s = csvread('data/mit_bih_101.csv'); %0.5*ones(size(t));% original signal
+s = s(3000:3000+max(size(t))-1);
 x = 2*sin(2*pi*49*t); % corrupt signal
 x(7000:8000) = 2*sin(2*pi*51*Ts*(7000:8000));
 x(9000:10000) = 3*sin(2*pi*49*Ts*(9000:10000));
