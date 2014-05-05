@@ -6,6 +6,7 @@ This is a reasearch project that investigates the advantages of software defined
 What are the benefits of sofware defined ecg ?
 ----------------------------------------------
 
+- It reduces the resolution of the ADC required.
 - Works for harmonics of 50/60 Hz (and maybe ~10 kHz interference from CFL too) without additional hardware.
 - Can be rapidly prototyped (low NRE cost) making it especially useful for biomed, wearable computing researchers who dont want to make a custom chip
 - Transistor scaling helps reduce cost in digital hardware as compared to analog hardware
