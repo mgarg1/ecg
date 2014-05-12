@@ -26,14 +26,16 @@ b = [1.266 -2.532 1.266]; % error filter numerator
 a = [1 -0.3695 0.1958]; % error filter denominator
 hcomb = [0.5 0 0 0 0 0 0 0 -0.5];
 
-s = csvread('data/mit_bih_101.csv'); %0.5*ones(size(t));% original signal
-s = s(3000:3000+max(size(t))-1);
-x = 2*sin(2*pi*49*t); % corrupt signal
-x(7000:8000) = 2*sin(2*pi*51*Ts*(7000:8000));
-x(9000:10000) = 3*sin(2*pi*49*Ts*(9000:10000));
+%s = csvread('../visualizer/ecg_plot_0.csv'); %0.5*ones(size(t));% original signal
+%s = s(3000:3000+max(size(t))-1);
+%x = 2*sin(2*pi*49*t); % corrupt signal
+%x(7000:8000) = 2*sin(2*pi*51*Ts*(7000:8000));
+%x(9000:10000) = 3*sin(2*pi*49*Ts*(9000:10000));
 
 
-d = x + s; % corrupt signal
+%d = x + s; % corrupt signal
+d = csvread('../data/custom_sde/data2_G_500_chest.csv');
+d = d(:,2);
 
 e = zeros(size(d)); % error signal (cleaned signal)
 ew = zeros(size(d)); % filtered error signal
@@ -61,7 +63,7 @@ alpha = zeros(size(d));
 % set initial values
 alpha(1) = 1;
 
-for k=1:N-1
+for k=1:max(size(d))-1
     % do work
     osc_i(k) = sin(omegan_p * k + thetaphi_est(k));
     osc_q(k) = cos(omegan_p * k + thetaphi_est(k));
@@ -146,8 +148,8 @@ for k=1:N-1
     
 end
 
-figure;plot(s,'b');title('original signal');
-figure;plot(x,'r');title('Interference signal');
+%figure;plot(s,'b');title('original signal');
+%figure;plot(x,'r');title('Interference signal');
 figure;plot(d','k');title('corrupt signal');
 figure;plot(e,'b');title('filtered signal');
 figure;plot(dh); hold on; plot(thresh,'k'); plot(adap_supp,'r');

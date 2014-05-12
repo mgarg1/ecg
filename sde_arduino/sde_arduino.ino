@@ -39,6 +39,7 @@ void debugdump(unsigned int val) {
 }
 
 void timerHandler() {
+  int temp;
   val = analogRead(analogInPin);
   dumpval(val);
   // saw tooth wave
@@ -62,14 +63,15 @@ void timerHandler() {
   }
   i++;
   i = i % 20;
-  
-  analogWrite(analogOutPin, sine_arr[amp][i]);
+  temp = sine_arr[amp][i];
+  temp = 2048;
+  analogWrite(analogOutPin, temp);
 }
 
 void setup() {
   Serial1.begin(115200);
   pinMode(led, OUTPUT); // initialize the digital pin as an output.
-  Timer.getAvailable().attachInterrupt(timerHandler).start(1000); // call timerHandler once in 1000 us
+  Timer.getAvailable().attachInterrupt(timerHandler).start(2500); // call timerHandler once in 2500 us
   analogWriteResolution(12);
   analogWrite(analogOutPin, 2048);
   analogWrite(DAC1, 2048);
