@@ -34,7 +34,7 @@ hcomb = [0.5 0 0 0 0 0 0 0 -0.5];
 
 
 %d = x + s; % corrupt signal
-d = csvread('../data/custom_sde/data2_G_500_chest.csv');
+d = csvread('../data/custom_sde/data5_G_60_chest.csv');
 d = d(:,2);
 
 e = zeros(size(d)); % error signal (cleaned signal)
