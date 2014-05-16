@@ -34,7 +34,7 @@ hcomb = [0.5 0 0 0 0 0 0 0 -0.5];
 
 
 %d = x + s; % corrupt signal
-d = csvread('../data/custom_sde/data5_G_60_chest.csv');
+d = csvread('../data/faraday_cage/ecg_plot_19.csv');
 d = d(:,2);
 
 e = zeros(size(d)); % error signal (cleaned signal)
@@ -152,4 +152,4 @@ end
 %figure;plot(x,'r');title('Interference signal');
 figure;plot(d','k');title('corrupt signal');
 figure;plot(e,'b');title('filtered signal');
-figure;plot(dh); hold on; plot(thresh,'k'); plot(adap_supp,'r');
+%figure;plot(dh); hold on; plot(thresh,'k'); plot(adap_supp,'r');
