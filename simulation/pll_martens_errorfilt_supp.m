@@ -34,7 +34,7 @@ hcomb = [0.5 0 0 0 0 0 0 0 -0.5];
 
 
 %d = x + s; % corrupt signal
-d = csvread('../data/faraday_cage/ecg_plot_19.csv');
+d = csvread('../data/custom_psuedo2/ecg_plot_4.csv');
 d = d(:,2);
 
 e = zeros(size(d)); % error signal (cleaned signal)
