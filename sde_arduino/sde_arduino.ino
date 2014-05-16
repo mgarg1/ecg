@@ -72,6 +72,7 @@ void setup() {
   Serial1.begin(115200);
   pinMode(led, OUTPUT); // initialize the digital pin as an output.
   Timer.getAvailable().attachInterrupt(timerHandler).start(2500); // call timerHandler once in 2500 us
+  analogReadResolution(12);
   analogWriteResolution(12);
   analogWrite(analogOutPin, 2048);
   analogWrite(DAC1, 2048);
