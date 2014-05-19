@@ -34,7 +34,7 @@ hcomb = [0.5 0 0 0 0 0 0 0 -0.5];
 
 
 %d = x + s; % corrupt signal
-d = csvread('../data/custom_2_single_ended/ecg_plot_1.csv');
+d = csvread('../data/custom_2_diff/ecg_plot_1.csv');
 d = d(:,2);
 
 e = zeros(size(d)); % error signal (cleaned signal)
