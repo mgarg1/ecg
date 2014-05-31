@@ -51,6 +51,7 @@ void timerHandler() {
   int temp;
   val = analogRead(analogInPin);
   dumpval(val);
+  /* // The following is a failed experiment.
   // saw tooth wave
   int key = Serial1.read();
   if(key == '1') {
@@ -73,6 +74,7 @@ void timerHandler() {
   i++;
   i = i % 20;
   temp = sine_arr[amp][i];
+  */
   temp = 2048;
   analogWrite(analogOutPin, temp);
 }
