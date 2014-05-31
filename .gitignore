@@ -2,3 +2,7 @@
 *.pyc
 *.o
 *.swp
+*.*51
+*.map
+*.pbi
+*.pbd

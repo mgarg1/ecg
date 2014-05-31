@@ -1,0 +1,39 @@
+[DebugChecksum]
+Checksum=-1796811022
+[DisAssemblyWindow]
+NumStates=_ 1
+State 1=_ 1
+[InstructionProfiling]
+Enabled=_ 0
+[CodeCoverage]
+Enabled=_ 0
+[StackPlugin]
+Enabled=1
+OverflowWarningsEnabled=1
+WarningThreshold=90
+SpWarningsEnabled=1
+WarnHow=0
+UseTrigger=1
+TriggerName=main
+LimitSize=0
+ByteLimit=50
+[Log file]
+LoggingEnabled=_ 0
+LogFile=_ ""
+Category=_ 0
+[TermIOLog]
+LoggingEnabled=_ 0
+LogFile=_ ""
+[Breakpoints]
+Count=0
+[ChipconEmu]
+Stop timers on halt=0
+Leave target running=1
+[Aliases]
+A0=_ "C:\Documents and Settings\Nazgul\Desktop\Sensor Codes\Sendor_Tag_CC2540_BR\CC2540ST\hal_dma.c" ""
+A1=_ "C:\Documents and Settings\Nazgul\Desktop\Sensor Codes\Sendor_Tag_CC2540_BR\CC2540ST\hal_startup.c" ""
+A2=_ "C:\Documents and Settings\Nazgul\Desktop\Sensor Codes\Sendor_Tag_CC2540_BR\SensorProfile\irtempservice.c" ""
+A3=_ "C:\Documents and Settings\Nazgul\Desktop\Sensor Codes\Sendor_Tag_CC2540_BR\Source\SensorTag_Main.c" ""
+A4=_ "C:\Documents and Settings\Nazgul\Desktop\Sensor Codes\Sendor_Tag_CC2540_BR\gap.c" ""
+Count=5
+SuppressDialog=0
