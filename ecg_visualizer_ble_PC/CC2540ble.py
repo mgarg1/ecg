@@ -13,13 +13,14 @@ class BTDongle():
         self.bt.flush()
         self.bt.flushInput()
 
-        self.__GAPTerminateLink(0)
-        time.sleep(1)
-        self.bt.flush()
-        self.bt.flushInput()
+        self.__GAPTerminateLink(65535) # terminate all connections
+        self.__waitForEmptyReceiveSerialBuffer()
 
-        if not self.__GAPDevInit():
-            raise Exception('GAPDeviceInit() failed')
+        self.__GAPDevInit()
+        
+        self.__GAPTerminateLink(65535) # terminate all connections
+        self.__waitForEmptyReceiveSerialBuffer()
+
 
     def discover(self):
         ''' returns a list of BLE devices discovered '''
@@ -84,17 +85,15 @@ class BTDongle():
 
 
     def __GAPDevInit(self, mode='central'):
-        ''' currently mode is ignored. Always BTDongle takes central role. Returns True on sucess, False on failure '''
-        gapInitCommandDump = ''' 01 00 FE 26 08 05 00 00 00 00 00 00 00 00 00 00 
-                                 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
-                                 00 00 00 00 00 00 01 00 00 00 '''
-        self.bt.write(self.__dumpToStr(gapInitCommandDump))
-        done = self.__waitForEvent('0x0600')
-        return done['status'] == 0
+        ''' currently mode is ignored. Always BTDongle takes central role. '''
+        self.__txDumpStr(''' 01 00 FE 26 08 05 00 00 00 00 00 00 00 00 00 00 
+                             00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+                             00 00 00 00 00 00 01 00 00 00 ''')
+
     
     def __GAPTerminateLink(self, handle):
-        ''' handle is an integer. When using only one device. It is 0 '''
-        self.__txDumpStr("01 0A FE 03 00 00 "+ " {:02x}".format(handle % 256) + " {:02x}".format(handle % 256)  +" 13")
+        ''' handle is an integer (0-65535) that represents a connection to a BLE peripheral device. '''
+        self.__txDumpStr("01 0A FE 03 "+ " {:02x}".format(handle % 256) + " {:02x}".format(handle % 256)  +" 13")
 
     def __waitForEvent(self, eventCodeInHex):
         ''' Wait for event to occur. 
@@ -161,6 +160,14 @@ class BTDongle():
 
     def __dumpToStr(self, dumpStr):
         return ''.join([binascii.a2b_hex(i) for i in dumpStr.split()])
+
+    def __waitForEmptyReceiveSerialBuffer(self):
+        while True:
+            time.sleep(0.2)
+            if len(self.bt.read(1000)) == 0:
+                time.sleep(0.2)
+                if len(self.bt.read(1000)) == 0:
+                    break
 
     def __initSerial(self, port=None):
         if port:
