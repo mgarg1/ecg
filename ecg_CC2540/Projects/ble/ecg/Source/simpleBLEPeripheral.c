@@ -753,14 +753,15 @@ void ECG_ADC_Init()
 }
 void ECG_Timer_Init()
 {
-#define TOP 65530
+  // 2.5 ms tick
+#define TOP 9999
   T1CC0L = (uint8) TOP;
   T1CC0H = (uint8) (TOP >> 8); // TOP value
   
   T1CC3H = 1;
   T1CC3L = 1; // Generate interrupt when timer is equal to this
   
-  T1CTL = 2; // count from 0 -> T1CC0
+  T1CTL = (1 << 2) | (2 << 0); // count from 0 -> T1CC0 at 1/8 of SYS_CLK
   T1CCTL3 = (1 << 6) | (1 << 2); // generate interrupts in compare mode
   IEN1 |= 2; // enable timer interrupt
 }
