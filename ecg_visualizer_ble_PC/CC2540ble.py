@@ -45,6 +45,14 @@ class BTDongle():
                 return evt['status'] == 0
         return False
 
+    def changeConnectionSettings(self, minConInterval=7, maxConInterval=7, slaveLatency=0, supervisionTimeout=10):
+        ''' connection intervals and slave latency in units of 1.25 ms, and supervisionTimeout in units of 10 ms '''
+        self.__txDumpStr(''' 01 30 FE 03 15 ''' + " {:02x}".format(minConInterval % 256) + " {:02x}".format(minConInterval / 256))
+        self.__txDumpStr(''' 01 30 FE 03 16 ''' + " {:02x}".format(maxConInterval % 256) + " {:02x}".format(maxConInterval / 256))
+        self.__txDumpStr(''' 01 30 FE 03 1A ''' + " {:02x}".format(slaveLatency % 256) + " {:02x}".format(slaveLatency / 256))
+        self.__txDumpStr(''' 01 30 FE 03 19 ''' + " {:02x}".format(supervisionTimeout % 256) + " {:02x}".format(supervisionTimeout / 256))
+
+
     def pollNotifications(self):
         ''' poll notifications '''
         for evt in self.__eventWaiter():
@@ -137,6 +145,10 @@ class BTDongle():
                 break
         
         return packet
+    
+    def __txDumpStr(self, dumpStr):
+        ''' transmit dump string '''
+        self.bt.write(self.__dumpToStr(dumpStr))
 
     def __dumpToStr(self, dumpStr):
         return ''.join([binascii.a2b_hex(i) for i in dumpStr.split()])

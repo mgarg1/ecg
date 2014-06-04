@@ -11,6 +11,9 @@ def main():
     print "Establishing link to the first device found . . ."
     print bt.link(devs[0])
 
+    print "Changing conncection parameters . . ."
+    bt.changeConnectionSettings()
+
     print "Enabling notifications . . ."
     print bt.enableNotifications('0x002F')
 
