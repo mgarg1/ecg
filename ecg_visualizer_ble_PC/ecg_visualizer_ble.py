@@ -8,11 +8,11 @@ def main():
     devs = bt.discover()
     print "BLE Devices found: ", devs
 
-    print "Establishing link to the first device found . . ."
-    print bt.link(devs[0])
-
     print "Changing conncection parameters . . ."
     bt.changeConnectionSettings()
+
+    print "Establishing link to the first device found . . ."
+    print bt.link(devs[0])
 
     print "Enabling notifications . . ."
     print bt.enableNotifications('0x002F')

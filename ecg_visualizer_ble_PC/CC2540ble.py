@@ -13,6 +13,11 @@ class BTDongle():
         self.bt.flush()
         self.bt.flushInput()
 
+        self.__GAPTerminateLink(0)
+        time.sleep(1)
+        self.bt.flush()
+        self.bt.flushInput()
+
         if not self.__GAPDevInit():
             raise Exception('GAPDeviceInit() failed')
 
@@ -87,6 +92,10 @@ class BTDongle():
         done = self.__waitForEvent('0x0600')
         return done['status'] == 0
     
+    def __GAPTerminateLink(self, handle):
+        ''' handle is an integer. When using only one device. It is 0 '''
+        self.__txDumpStr("01 0A FE 03 00 00 "+ " {:02x}".format(handle % 256) + " {:02x}".format(handle % 256)  +" 13")
+
     def __waitForEvent(self, eventCodeInHex):
         ''' Wait for event to occur. 
             example: self.__waitForEvent('0x0600') for GAPInitDone(). 
