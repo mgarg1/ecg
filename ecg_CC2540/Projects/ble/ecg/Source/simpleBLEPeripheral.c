@@ -737,6 +737,10 @@ static void peripheralStateNotificationCB( gaprole_States_t newState )
 volatile CircularBuffer cBuf;
 void ECG_Init()
 { 
+  //HCI_EXT_ClkDivOnHaltCmd( HCI_EXT_DISABLE_CLK_DIVIDE_ON_HALT );
+  HCI_EXT_ClkDivOnHaltCmd( HCI_EXT_DISABLE_CLK_DIVIDE_ON_HALT );
+  HCI_EXT_HaltDuringRfCmd( HCI_EXT_HALT_DURING_RF_DISABLE );
+  
   circBufferInit(&cBuf);
   ECG_ADC_Init();
   ECG_Timer_Init();
@@ -749,7 +753,7 @@ void ECG_ADC_Init()
 }
 void ECG_Timer_Init()
 {
-#define TOP 32768
+#define TOP 65530
   T1CC0L = (uint8) TOP;
   T1CC0H = (uint8) (TOP >> 8); // TOP value
   
