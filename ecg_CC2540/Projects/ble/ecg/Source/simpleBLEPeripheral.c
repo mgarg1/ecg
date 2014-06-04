@@ -40,7 +40,7 @@
 /*********************************************************************
  * INCLUDES
  */
-
+#include "circularBuffer.h"
 #include "bcomdef.h"
 #include "OSAL.h"
 #include "OSAL_PwrMgr.h"
@@ -84,7 +84,7 @@
  */
 
 // How often to perform periodic event
-#define SBP_PERIODIC_EVT_PERIOD                   13
+#define SBP_PERIODIC_EVT_PERIOD                   10
 
 // What is the advertising interval when device is discoverable (units of 625us, 160=100ms)
 #define DEFAULT_ADVERTISING_INTERVAL          160
@@ -423,8 +423,12 @@ void SimpleBLEPeripheral_Init( uint8 task_id )
 
   // Setup a delayed profile startup
   osal_set_event( simpleBLEPeripheral_TaskID, SBP_START_DEVICE_EVT );
+  
+  ECG_Init();
+  
 
 }
+
 
 /*********************************************************************
  * @fn      SimpleBLEPeripheral_ProcessEvent
@@ -455,7 +459,7 @@ uint16 SimpleBLEPeripheral_ProcessEvent( uint8 task_id, uint16 events )
       // Release the OSAL message
       VOID osal_msg_deallocate( pMsg );
     }
-
+    
     // return unprocessed events
     return (events ^ SYS_EVENT_MSG);
   }
@@ -729,13 +733,49 @@ static void peripheralStateNotificationCB( gaprole_States_t newState )
  *
  * @return  none
  */
-uint8 glob_counter = 0;
 
+volatile CircularBuffer cBuf;
+void ECG_Init()
+{ 
+  circBufferInit(&cBuf);
+  ECG_ADC_Init();
+  ECG_Timer_Init();
+  P1DIR |= 1; // P1.0 is output
+}
+
+void ECG_ADC_Init()
+{
+  
+}
+void ECG_Timer_Init()
+{
+#define TOP 32768
+  T1CC0L = (uint8) TOP;
+  T1CC0H = (uint8) (TOP >> 8); // TOP value
+  
+  T1CC3H = 1;
+  T1CC3L = 1; // Generate interrupt when timer is equal to this
+  
+  T1CTL = 2; // count from 0 -> T1CC0
+  T1CCTL3 = (1 << 6) | (1 << 2); // generate interrupts in compare mode
+  IEN1 |= 2; // enable timer interrupt
+}
+
+volatile uint8 timeCounter;
+#pragma vector=T1_VECTOR
+__interrupt void ECG_TimerInterrupt( void ) 
+{
+  P1 ^= 1;
+  circBufferAdd(&cBuf, timeCounter++);
+}
+
+volatile uint8 glob_counter = 0;
 static void performPeriodicTask( void )
 {
   uint8 valueToCopy[16];
   uint8 i;
   uint8 stat;
+  uint16 tmp;
 
   // Call to retrieve the value of the third characteristic in the profile
   stat = SimpleProfile_GetParameter( SIMPLEPROFILE_CHAR3, valueToCopy);
@@ -749,8 +789,13 @@ static void performPeriodicTask( void )
      * function is called.
      */
     glob_counter++;
-    for(i = 0;i < 16;i++)
-      valueToCopy[i] = glob_counter;
+    for(i = 0;i < 8;i++)
+    {
+      circBufferRemove(&cBuf, &tmp);
+      valueToCopy[2*i] = (uint8) tmp ;
+      valueToCopy[2*i+1] = (uint8) (tmp >> 8);
+      //valueToCopy[i] = glob_counter;
+    }
     
     SimpleProfile_SetParameter( SIMPLEPROFILE_CHAR4, 16*sizeof(uint8), valueToCopy);
   }

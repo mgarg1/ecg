@@ -65,7 +65,9 @@ extern "C"
 /*********************************************************************
  * FUNCTIONS
  */
-
+void ECG_ADC_Init();
+void ECG_Init();
+void ECG_Timer_Init();
 /*
  * Task Initialization for the BLE Application
  */

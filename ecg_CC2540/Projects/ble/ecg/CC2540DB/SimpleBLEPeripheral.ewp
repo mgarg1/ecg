@@ -8671,6 +8671,12 @@
   <group>
     <name>APP</name>
     <file>
+      <name>$PROJ_DIR$\..\Source\circularBuffer.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\Source\circularBuffer.h</name>
+    </file>
+    <file>
       <name>$PROJ_DIR$\..\Source\OSAL_SimpleBLEPeripheral.c</name>
     </file>
     <file>
