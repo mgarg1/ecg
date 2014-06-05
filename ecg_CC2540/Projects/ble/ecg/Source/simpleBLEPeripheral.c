@@ -737,19 +737,20 @@ static void peripheralStateNotificationCB( gaprole_States_t newState )
 volatile CircularBuffer cBuf;
 void ECG_Init()
 { 
-  //HCI_EXT_ClkDivOnHaltCmd( HCI_EXT_DISABLE_CLK_DIVIDE_ON_HALT );
   HCI_EXT_ClkDivOnHaltCmd( HCI_EXT_DISABLE_CLK_DIVIDE_ON_HALT );
   HCI_EXT_HaltDuringRfCmd( HCI_EXT_HALT_DURING_RF_DISABLE );
   
   circBufferInit(&cBuf);
-  ECG_ADC_Init();
   ECG_Timer_Init();
-  P1DIR |= 1; // P1.0 is output
+  ECG_ADC_Init();
+  //P1DIR |= 1; // P1.0 is output for debugging
+  APCFG |= (1 << 0); // P0.0 is analog
 }
 
 void ECG_ADC_Init()
 {
-  
+  ADCCON1 = (2 << 4); // trigger with Timer1 channel 0
+  ADCCON2 = (2 << 6) | (3 << 4); // Vref = AVDD5; 12 bits ENOB; AIN0 pin
 }
 void ECG_Timer_Init()
 {
@@ -757,24 +758,27 @@ void ECG_Timer_Init()
 #define TOP 9999
   T1CC0L = (uint8) TOP;
   T1CC0H = (uint8) (TOP >> 8); // TOP value
-  
-  T1CC3H = 1;
-  T1CC3L = 1; // Generate interrupt when timer is equal to this
+  // Interrupt to read ADC
+#define TINT (TOP/2)
+  T1CC3L = (uint8) TINT;
+  T1CC3H = (uint8) (TINT >> 8);
   
   T1CTL = (1 << 2) | (2 << 0); // count from 0 -> T1CC0 at 1/8 of SYS_CLK
-  T1CCTL3 = (1 << 6) | (1 << 2); // generate interrupts in compare mode
+  T1CCTL0 = (1 << 2); // compare mode
+  T1CCTL3 = (1 << 6) | (1 << 2); // compare mode with interrupt
   IEN1 |= 2; // enable timer interrupt
 }
 
-volatile uint8 timeCounter;
 #pragma vector=T1_VECTOR
 __interrupt void ECG_TimerInterrupt( void ) 
 {
-  P1 ^= 1;
-  circBufferAdd(&cBuf, timeCounter++);
+  //P1 ^= 1; // for debugging
+  uint16 adcVal = ADCL;
+  adcVal |= (ADCH << 8);
+  adcVal = (adcVal >> 2);
+  circBufferAdd(&cBuf, adcVal);
 }
 
-volatile uint8 glob_counter = 0;
 static void performPeriodicTask( void )
 {
   uint8 valueToCopy[16];
@@ -793,13 +797,11 @@ static void performPeriodicTask( void )
      * a GATT client device, then a notification will be sent every time this
      * function is called.
      */
-    glob_counter++;
     for(i = 0;i < 8;i++)
     {
       circBufferRemove(&cBuf, &tmp);
       valueToCopy[2*i] = (uint8) tmp ;
       valueToCopy[2*i+1] = (uint8) (tmp >> 8);
-      //valueToCopy[i] = glob_counter;
     }
     
     SimpleProfile_SetParameter( SIMPLEPROFILE_CHAR4, 16*sizeof(uint8), valueToCopy);
