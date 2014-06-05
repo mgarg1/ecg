@@ -18,10 +18,6 @@ class BTDongle():
 
         self.__GAPDevInit()
         
-        self.__GAPTerminateLink(65535) # terminate all connections
-        self.__waitForEmptyReceiveSerialBuffer()
-
-
     def discover(self):
         ''' returns a list of BLE devices discovered '''
         return self.__GAPDevDiscoveryRequest()
