@@ -16,7 +16,8 @@ class BTDongle():
         self.__GAPTerminateLink(65535) # terminate all connections
         self.__waitForEmptyReceiveSerialBuffer()
 
-        self.__GAPDevInit()
+        if not self.__GAPDevInit():
+            raise Exception('GAPDeviceInit() failed')
         
     def discover(self):
         ''' returns a list of BLE devices discovered '''
@@ -85,7 +86,8 @@ class BTDongle():
         self.__txDumpStr(''' 01 00 FE 26 08 05 00 00 00 00 00 00 00 00 00 00 
                              00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
                              00 00 00 00 00 00 01 00 00 00 ''')
-
+        done = self.__waitForEvent('0x0600')
+        return done['status'] == 0
     
     def __GAPTerminateLink(self, handle):
         ''' handle is an integer (0-65535) that represents a connection to a BLE peripheral device. '''
