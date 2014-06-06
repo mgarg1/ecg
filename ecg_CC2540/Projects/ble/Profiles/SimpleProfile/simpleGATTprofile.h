@@ -76,6 +76,9 @@ extern "C"
 // Length of Characteristic 5 in bytes
 #define SIMPLEPROFILE_CHAR5_LEN           5  
 
+// Length of Characteristic 4 in bytes. The ECG application needs this to be even.
+#define SIMPLEPROFILE_CHAR4_LEN           16
+  
 /*********************************************************************
  * TYPEDEFS
  */

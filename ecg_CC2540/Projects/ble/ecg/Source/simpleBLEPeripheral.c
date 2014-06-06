@@ -358,7 +358,7 @@ void SimpleBLEPeripheral_Init( uint8 task_id )
     SimpleProfile_SetParameter( SIMPLEPROFILE_CHAR1, sizeof ( uint8 ), &charValue1 );
     SimpleProfile_SetParameter( SIMPLEPROFILE_CHAR2, sizeof ( uint8 ), &charValue2 );
     SimpleProfile_SetParameter( SIMPLEPROFILE_CHAR3, sizeof ( uint8 ), &charValue3 );
-    SimpleProfile_SetParameter( SIMPLEPROFILE_CHAR4, sizeof ( uint8 ), &charValue4 );
+    SimpleProfile_SetParameter( SIMPLEPROFILE_CHAR4, SIMPLEPROFILE_CHAR4_LEN, &charValue4 );
     SimpleProfile_SetParameter( SIMPLEPROFILE_CHAR5, SIMPLEPROFILE_CHAR5_LEN, charValue5 );
   }
 
@@ -743,7 +743,8 @@ void ECG_Init()
   circBufferInit(&cBuf);
   ECG_Timer_Init();
   ECG_ADC_Init();
-  //P1DIR |= 1; // P1.0 is output for debugging
+  P1DIR |= 1; // P1.0 is output for debugging
+  P1 |= (1 << 0); // P1.0 is high
   APCFG |= (1 << 0); // P0.0 is analog
 }
 
@@ -781,7 +782,7 @@ __interrupt void ECG_TimerInterrupt( void )
 
 static void performPeriodicTask( void )
 {
-  uint8 valueToCopy[16];
+  uint8 valueToCopy[SIMPLEPROFILE_CHAR4_LEN];
   uint8 i;
   uint8 stat;
   uint16 tmp;
@@ -797,14 +798,14 @@ static void performPeriodicTask( void )
      * a GATT client device, then a notification will be sent every time this
      * function is called.
      */
-    for(i = 0;i < 8;i++)
+    for(i = 0;i < SIMPLEPROFILE_CHAR4_LEN/2;i++)
     {
       circBufferRemove(&cBuf, &tmp);
       valueToCopy[2*i] = (uint8) tmp ;
       valueToCopy[2*i+1] = (uint8) (tmp >> 8);
     }
     
-    SimpleProfile_SetParameter( SIMPLEPROFILE_CHAR4, 16*sizeof(uint8), valueToCopy);
+    SimpleProfile_SetParameter( SIMPLEPROFILE_CHAR4, SIMPLEPROFILE_CHAR4_LEN*sizeof(uint8), valueToCopy);
   }
 }
 
