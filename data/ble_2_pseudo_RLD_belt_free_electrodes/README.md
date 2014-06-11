@@ -7,3 +7,4 @@
 
 - CC2540, battery, analog circuitry were kept inside the belt.
 - Electrodes were out with wires.
+- The belt was placed over the belly button with the electrodes on either side of them.
