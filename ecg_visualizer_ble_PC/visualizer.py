@@ -44,12 +44,13 @@ def main():
 
 
     for evt in bt.pollNotifications():
-        f2s = lambda x: x if x < 2**13 or x >= 65530 else (-2**14 + x)
-        vals = [ f2s(lsb + 256*msb) for (lsb, msb) in zip(evt[::2], evt[1::2]) ]
-        vals = [ val for val in vals if val < 65530 ]
-        for val in vals:
-            t += Tsample
-            ecgPlot.addDataPoint(t, [val])
+        if len(evt) == 16:
+            f2s = lambda x: x if x < 2**13 or x >= 65530 else (-2**14 + x)
+            vals = [ f2s(lsb + 256*msb) for (lsb, msb) in zip(evt[::2], evt[1::2]) ]
+            vals = [ val for val in vals if val < 65530 ]
+            for val in vals:
+                t += Tsample
+                ecgPlot.addDataPoint(t, [val])
 
 if __name__ == '__main__':
     main()

@@ -61,7 +61,7 @@ class BTDongle():
         for evt in self.__eventWaiter():
             if evt['event'] == int('0x051B', 16):
                 #ATT_HandleValueNotification Event
-                if evt['status'] == 0:
+                if evt['status'] == 0 and len(evt['data']) > 5:
                     yield evt['data'][5:]
 
     def __GAPDevDiscoveryRequest(self):
