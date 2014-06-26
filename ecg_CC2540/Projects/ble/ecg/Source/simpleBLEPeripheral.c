@@ -743,15 +743,17 @@ void ECG_Init()
   circBufferInit(&cBuf);
   ECG_Timer_Init();
   ECG_ADC_Init();
-  P1DIR |= 1; // P1.0 is output for debugging
-  P1 |= (1 << 0); // P1.0 is high
-  APCFG |= (1 << 0); // P0.0 is analog
+  //P1DIR |= 1; // P1.0 is output for debugging
+  //P1 |= (1 << 0); // P1.0 is high
+  APCFG |= (1 << 4); // P0.4 is analog
 }
 
 void ECG_ADC_Init()
 {
   ADCCON1 = (2 << 4); // trigger with Timer1 channel 0
-  ADCCON2 = (2 << 6) | (3 << 4); // Vref = AVDD5; 12 bits ENOB; AIN0 pin
+  ADCCON2 = (3 << 6) | (3 << 4) | (4 << 0); // Vref = AIN6-AIN7; 12 bits ENOB; AIN4 pin input
+  // AIN7 is grounded. AIN6 is connected to P0.5
+  P0DIR &= ~(1 << 5); // P0.5 is hi-z
 }
 void ECG_Timer_Init()
 {
