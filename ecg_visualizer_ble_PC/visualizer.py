@@ -39,6 +39,7 @@ def main():
     print bt.enableNotifications('0x002F')
 
     ecgPlot = streamplot.StreamPlot(saveFileNameStart = "ecg_plot",lines = [('l','r','ecg')], exitforce=True)
+    ecgPlot.addDataPoint(0, [0])
     Tsample = 1/400.0 # in seconds
     t = 0
 

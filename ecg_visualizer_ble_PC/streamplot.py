@@ -182,10 +182,10 @@ class StreamPlot():
             if self.yhi >= yhi + thresh_a*pp_amplitude or self.yhi <= yhi + thresh_b*pp_amplitude:
                 self.yhi = yhi + thresh_avg*pp_amplitude
             
-            eps = 1e-20
-            if np.abs(self.yhi-self.ylo) < eps:
-                self.yhi = (self.ylo+self.yhi)/2.0 + eps/2
-                self.ylo = (self.ylo+self.yhi)/2.0 - eps/2
+            eps = 1e-5
+            if np.abs(self.yhi-self.ylo)/(eps + self.yhi) < eps:
+                self.yhi = (self.ylo+self.yhi)/2.0 * (1 + eps/2)
+                self.ylo = (self.ylo+self.yhi)/2.0 * (1 - eps/2)
             
             viewBox = [xstart,self.ylo,xstop,self.yhi ]
             fig.process_interaction('SetViewbox', viewBox)
