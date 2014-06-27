@@ -1,4 +1,5 @@
 - The PCBs are wrapped in foam and placed inside the pocket of a runner's belt. Heat shrinked cables are used to connect the electrodes to the PCB.
+- In one of the electrodes, the outer ring was connected to RLD
 - Single CR2032 coin cell battery directly powers CC2540 (DVDD and AVDD)
 
 - Battery -> LP5907 (1.8v regulator) -> ECG circuitry and AREF

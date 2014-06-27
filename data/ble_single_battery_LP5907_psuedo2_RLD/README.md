@@ -6,3 +6,4 @@
 - The two dry contact G=1 electrodes are placed across the heart
 - Diff gain (6) x Single ended gain (100) = 600
 - RLD gain = 200
+
