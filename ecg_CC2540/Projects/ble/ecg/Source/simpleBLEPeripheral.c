@@ -745,7 +745,7 @@ void ECG_Init()
   ECG_ADC_Init();
   //P1DIR |= 1; // P1.0 is output for debugging
   //P1 |= (1 << 0); // P1.0 is high
-  APCFG |= (1 << 4); // P0.4 is analog
+  APCFG |= ((1 << 4) | (1 << 7) | (1 << 6)); // P0.4, P0.6, P0.7 are analog
 }
 
 void ECG_ADC_Init()
