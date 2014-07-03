@@ -23,7 +23,7 @@ Wired ECG with Arduino:
 - Program the Arduino with the source in `ecg_arduino/ecg_arduino.ino`.
 - Goto `ecg_visualizer_arduino_PC/` and run `python visualizer.py`. If the serial port name is incorrect, edit `visualizer.py`.
 - Press the hi-z electrodes across the heart and press the RLD electrode to the leg or forehead. Alternatively, the outer ring of one of the hi-z electrodes can be connected to the RLD electrode. For more details, see the technical report in `report/ecg_tech_report.pdf`. You should now see an ECG signal on the PC display.
-- Note that a laptop (with the power cord removed) must be used. Preferably, keep the laptop on your lap. Interference will be much worse if a mains powered desktop is used; the interference may be so strong as to saturate the amplifiers leading to no ECG signal at all.
+- Note that a laptop (with the power cord removed) must be used to power the Arduino. Preferably, keep the laptop on your lap. Interference will be much worse if a mains powered desktop is used; the interference may be so strong as to saturate the amplifiers leading to no useful ECG signal at all.
 
 Wireless ECG with Bluetooth Low Energy (BLE using CC2540):
 
@@ -31,4 +31,4 @@ Wireless ECG with Bluetooth Low Energy (BLE using CC2540):
 - Connect the CC2540 USB dongle to a PC (either a laptop or a mains powered desktop will do). Program the CC2540 USB dongle with the hex file `ecg_CC2540/hexfiles/CC2540_SmartRF_HostTestRelease_All.hex`.
 - Goto `ecg_visualizer_ble_PC/` and run `python visualizer.py`. If the serial port name is incorrect, edit `visualizer.py`.
 - Press the hi-z electrodes across the heart and press the RLD electrode to the leg or forehead. Alternatively, the outer ring of one of the hi-z electrodes can be connected to the RLD electrode. For more details, see the technical report in `report/ecg_tech_report.pdf`. You should now see an ECG signal on the PC display. A sample recording may be found [here](https://github.com/s-gv/ecg/blob/master/data/ble_single_battery_LP5907_psuedo2_RLD/screenshots/screenshot0.png).
-- Note that the CC2540 which is gathering ECG data and transmitting wirelessly has to be powered by a battery (ex: CR2032 coin cell). If a mains power source is used, interference will be much worse.
+- Note that the CC2540, which is gathering ECG data and transmitting wirelessly, has to be powered by a battery (ex: CR2032 coin cell). If a mains power source is used, interference will be much worse.
