@@ -1,0 +1,82 @@
+(Netlist exported from Eagle NBMC_SCHEMATIC_with_LBM313.sch schematic to Telesis/Allegro netlist)
+(Date 2014-10-8 0:2:27)
+(PACKAGE format is :)
+([packagename] !devicetype [!value[!tolerance]];reference_designator...)
+(Package names and Value defined here overwrite package name and Value defined in the Device File.)
+(See Allegro PCB Editor User Guide / Transferring Logic Design Data / Creating, Comparing, and Updating Databases for more info.)
+$PACKAGES
+C0402! C-EUC0402-1uF! '1uF'; C11
+C0402! C-EUC0402-1uF! '1uF'; C12
+C0402! C-EUC0402-10uF! '10uF'; C14
+C0402! C-EUC0402-10nF! '10nF'; C16
+C0402! C-EUC0402-0_1uF! '0_1uF'; C17
+C0402! C-EUC0402-0_1uF! '0_1uF'; C18
+C0402! C-EUC0402-1_5nF! '1_5nF'; C19
+C0402! C-EUC0402-1nF! '1nF'; C20
+C0402! C-EUC0402-0_33uF! '0_33uF'; C21
+C0402! C-EUC0402-15pF! '15pF'; C29
+C0402! C-EUC0402-15pF! '15pF'; C30
+CR2032H! CR2032H-CR2032H! 'CR2032H'; G1
+CR2032-SMD! CR2032SMT-CR2032_Batt_Holder! 'CR2032_Batt_Holder'; G2
+2X05! PINHD-2X5-10_pin_connector! '10_pin_connector'; JP1
+LBM313-2540! LBM313-2540-LBM313-2540! 'LBM313-2540'; MOD1
+Q! XTAL-32_768kHz! '32_768kHz'; Q1
+R0402! R-US_R0402-100kΩ! '100kΩ'; R13
+R0402! R-US_R0402-1MΩ! '1MΩ'; R14
+R0402! R-US_R0402-10MΩ! '10MΩ'; R15
+R0402! R-US_R0402-10MΩ! '10MΩ'; R16
+R0402! R-US_R0402-10MΩ! '10MΩ'; R17
+R0402! R-US_R0402-10MΩ! '10MΩ'; R18
+R0402! R-US_R0402-1_4MΩ! '1_4MΩ'; R19
+R0402! R-US_R0402-1MΩ_! '1MΩ_'; R20
+R0402! R-US_R0402-1MΩ! '1MΩ'; R21
+R0402! R-US_R0402-180kΩ! '180kΩ'; R22
+R0402! R-US_R0402-180kΩ! '180kΩ'; R23
+R0402! R-US_R0402-10MΩ! '10MΩ'; R26
+R0402! R-US_R0402-10MΩ! '10MΩ'; R27
+R0402! R-US_R0402-10MΩ! '10MΩ'; R181
+R0402! R-US_R0402-10MΩ! '10MΩ'; R182
+R0402! R-US_R0402-50kΩ! '50kΩ'; R191
+RS-2_5! THERMISTOR-2_5-THERMISTOR-2_5! 'THERMISTOR-2_5'; TR1
+CP_20_10! AD8232ACPZ_R7-AD8232ACPZ_R7! 'AD8232ACPZ_R7'; U3
+
+(NETS format is :)
+([netname] ; reference_designator.pin_number)
+(See Allegro PCB Editor User Guide / Transferring Logic Design Data / Creating, Comparing, and Updating Databases for more info.)
+$NETS
+'DEBUG1' ; MOD1.27 JP1.4 
+'DEBUG2' ; MOD1.28 JP1.3 
+'ECGIN' ; MOD1.20 C19.1 R14.1 U3.10 
+'GND' ; U3.21 U3.14 C18.1 TR1.1 R16.1 U3.16 C17.1 C14.2 R182.1 ,
+   C11.2 C12.2 MOD1.1 MOD1.46 MOD1.44 MOD1.39 MOD1.36 MOD1.19 ,
+   MOD1.13 MOD1.9 MOD1.7 MOD1.32 MOD1.25 MOD1.17 MOD1.43 MOD1.45 ,
+   JP1.1 C29.2 C30.1 G2.2 G1.2 
+'LA' ; R22.2 R27.2 
+'N$2' ; MOD1.30 C30.2 Q1.2 
+'N$15' ; U3.2 R22.1 
+'N$17' ; U3.5 C20.1 R27.1 R26.1 
+'N$21' ; U3.3 R23.1 
+'N$22' ; R19.1 U3.6 
+'N$23' ; R181.2 R191.2 
+'N$25' ; U3.11 MOD1.8 
+'N$26' ; U3.12 MOD1.5 
+'N$27' ; U3.13 MOD1.10 
+'N$28' ; 
+'N$29' ; R21.1 C19.2 R20.2 
+'N$37' ; R13.1 R14.2 U3.9 
+'N$41' ; U3.7 R20.1 C16.2 
+'N$42' ; U3.8 R13.2 C16.1 
+'N$49' ; U3.19 R18.2 R21.2 
+'N$50' ; C21.1 U3.20 R17.2 
+'N$51' ; R17.1 R18.1 R19.2 
+'N$54' ; U3.4 C20.2 
+'N$57' ; U3.1 C21.2 
+'RA' ; R23.2 R26.2 
+'RESET' ; MOD1.37 JP1.7 
+'TV1' ; R181.1 R182.2 MOD1.33 
+'TV2' ; TR1.2 R191.1 MOD1.34 
+'TV3' ; R15.2 U3.18 R16.2 C18.2 
+'VSS' ; U3.15 C17.2 R15.1 U3.17 C14.1 JP1.2 MOD1.3 MOD1.42 MOD1.41 ,
+   MOD1.40 MOD1.38 MOD1.14 MOD1.6 MOD1.31 C11.1 C12.1 G2.1_2 G1.1 
+'VSS1' ; MOD1.29 C29.1 Q1.1 
+$END

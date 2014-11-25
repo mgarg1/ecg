@@ -1,0 +1,36 @@
+Partlist exported from /home/mohit/Documents/eagle/LBM313/NBMC_SCHEMATIC_with_LBM313.sch at 11/7/14 10:35 PMPartlist exported from /home/mohit/Documents/eagle/LBM313/NBMC_SCHEMATIC_with_LBM313.sch at 11/7/14 10:35 PM
+
+C11	1µF	C-EUC0402	C0402			CAPACITOR, European symbol
+C12	1µF	C-EUC0402	C0402			CAPACITOR, European symbol
+C14	15µF	C-EUC0402	C0402			CAPACITOR, European symbol
+C16	10nF	C-EUC0402	C0402			CAPACITOR, European symbol
+C17	0.1µF	C-EUC0402	C0402			CAPACITOR, European symbol
+C18	0.1µF	C-EUC0402	C0402			CAPACITOR, European symbol
+C19	1.5nF	C-EUC0402	C0402			CAPACITOR, European symbol
+C20	1nF	C-EUC0402	C0402			CAPACITOR, European symbol
+C21	0.33µF	C-EUC0402	C0402			CAPACITOR, European symbol
+C29	15pF	C-EUC0402	C0402			CAPACITOR, European symbol
+C30	15pF	C-EUC0402	C0402			CAPACITOR, European symbol
+G1	CR2032H	CR2032H	CR2032H			LI BATTERY Varta
+G2	CR2032 Batt Holder	CR2032SMT	CR2032-SMD			
+JP1	10 pin connector	PINHD-2X5	2X05			PIN HEADER
+MOD1	LBM313-2540	LBM313-2540	LBM313-2540			Bluetooth 4.0 Module.  Documentation at: http://punchthrough.com/docs/doku.php?id=lbm313
+Q1	32.768kHz	XTAL	Q			CRYSTAL
+R13	100kΩ	R-US_R0402	R0402			RESISTOR, American symbol
+R14	1MΩ	R-US_R0402	R0402			RESISTOR, American symbol
+R15	10MΩ	R-US_R0402	R0402			RESISTOR, American symbol
+R16	10MΩ	R-US_R0402	R0402			RESISTOR, American symbol
+R17	10MΩ	R-US_R0402	R0402			RESISTOR, American symbol
+R18	10MΩ	R-US_R0402	R0402			RESISTOR, American symbol
+R19	1.4MΩ	R-US_R0402	R0402			RESISTOR, American symbol
+R20	1MΩ 	R-US_R0402	R0402			RESISTOR, American symbol
+R21	1MΩ	R-US_R0402	R0402			RESISTOR, American symbol
+R22	180kΩ	R-US_R0402	R0402			RESISTOR, American symbol
+R23	180kΩ	R-US_R0402	R0402			RESISTOR, American symbol
+R26	10MΩ	R-US_R0402	R0402			RESISTOR, American symbol
+R27	10MΩ	R-US_R0402	R0402			RESISTOR, American symbol
+R181	10MΩ	R-US_R0402	R0402			RESISTOR, American symbol
+R182	10MΩ	R-US_R0402	R0402			RESISTOR, American symbol
+R191	50kΩ	R-US_R0402	R0402			RESISTOR, American symbol
+TR1	THERMISTOR-2,5	THERMISTOR-2,5	RS-2,5			THERMISTOR
+U3	AD8232ACPZ_R7	AD8232ACPZ_R7	CP_20_10			

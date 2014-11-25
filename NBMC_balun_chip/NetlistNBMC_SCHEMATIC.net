@@ -1,0 +1,95 @@
+(Netlist exported from Eagle NBMC_SCHEMATIC.sch schematic to Telesis/Allegro netlist)
+(Date 2014-7-19 20:56:23)
+(PACKAGE format is :)
+([packagename] !devicetype [!value[!tolerance]];reference_designator...)
+(Package names and Value defined here overwrite package name and Value defined in the Device File.)
+(See Allegro PCB Editor User Guide / Transferring Logic Design Data / Creating, Comparing, and Updating Databases for more info.)
+$PACKAGES
+PAD-01! ANTENNA-Ant_Chip! 'Ant_Chip'; 2450AT18A100E1
+C0402! C-EUC0402-1uF! '1uF'; C1
+C0402! C-EUC0402-10nF! '10nF'; C16
+C0402! C-EUC0402-0_1uF! '0_1uF'; C17
+C0402! C-EUC0402-0_1uF! '0_1uF'; C18
+C0402! C-EUC0402-1_5nF! '1_5nF'; C19
+C0402! C-EUC0402-1nF! '1nF'; C20
+C0402! C-EUC0402-0_33uF! '0_33uF'; C21
+C0402! C-EUC0402-0_33uF! '0_33uF'; C22
+C0402! C-EUC0402-12pF! '12pF'; C221
+C0402! C-EUC0402-12pF! '12pF'; C231
+C0402! C-EUC0402-15pF! '15pF'; C321
+C0402! C-EUC0402-15pF! '15pF'; C331
+C0402! C-EUC0402-1uF! '1uF'; C401
+RS-2_5! THERMISTOR-2_5-THERMISTOR-2_5! 'THERMISTOR-2_5'; R1
+R0402! R-US_R0402-0Ω! '0Ω'; R2
+R0402! R-US_R0402-0Ω! '0Ω'; R3
+R0402! R-US_R0402-0Ω! '0Ω'; R4
+R0402! R-US_R0402-100kΩ! '100kΩ'; R13
+R0402! R-US_R0402-1MΩ! '1MΩ'; R14
+R0402! R-US_R0402-10MΩ! '10MΩ'; R15
+R0402! R-US_R0402-10MΩ! '10MΩ'; R16
+R0402! R-US_R0402-10MΩ! '10MΩ'; R17
+R0402! R-US_R0402-10MΩ! '10MΩ'; R18
+R0402! R-US_R0402-1_4MΩ! '1_4MΩ'; R19
+R0402! R-US_R0402-1MΩ_! '1MΩ_'; R20
+R0402! R-US_R0402-1MΩ! '1MΩ'; R21
+R0402! R-US_R0402-180kΩ! '180kΩ'; R22
+R0402! R-US_R0402-180kΩ! '180kΩ'; R23
+R0402! R-US_R0402-10MΩ! '10MΩ'; R26
+R0402! R-US_R0402-10MΩ! '10MΩ'; R27
+R0402! R-US_R0402-56KΩ! '56KΩ'; R301
+RU_16! ADG709BRU-ADG709BRU! 'ADG709BRU'; U1
+RHA_S-PVQFN-N40! CC2541-CC2541! 'CC2541'; U2
+CP_20_10! AD8232ACPZ_R7-AD8232ACPZ_R7! 'AD8232ACPZ_R7'; U3
+2450BM15A0002! 2450BM15A0002-2450BM15A0002! '2450BM15A0002'; U4
+Q! XTAL-32MHz! '32MHz'; XTAL1
+Q! XTAL-32_768kHz! '32_768kHz'; XTAL2
+
+(NETS format is :)
+([netname] ; reference_designator.pin_number)
+(See Allegro PCB Editor User Guide / Transferring Logic Design Data / Creating, Comparing, and Updating Databases for more info.)
+$NETS
+'GND' ; C221.1 U3.21 R301.1 C401.1 U2.1 U2.EXP U1.15 U1.3 C231.1 ,
+   C18.1 C321.2 C331.2 R3.2 R1.1 C1.1 R16.1 U3.16 C17.1 U3.14 ,
+   U4.2 U4.6 U4.5 
+'N$1' ; U4.3 U2.26 
+'N$2' ; R301.2 U2.30 
+'N$3' ; C1.2 U2.20 
+'N$4' ; U4.4 U2.25 
+'N$7' ; U4.1 2450AT18A100E1.1 
+'N$8' ; C401.2 U2.40 
+'N$9' ; U2.5 U1.2 
+'N$10' ; U2.19 R1.2 R2.1 
+'N$11' ; U2.22 C221.2 XTAL1.2 
+'N$12' ; U2.23 C231.2 XTAL1.1 
+'N$13' ; C321.1 XTAL2.2 U2.32 
+'N$14' ; C331.1 XTAL2.1 U2.33 
+'N$15' ; U3.2 R22.1 
+'N$17' ; U3.5 C20.1 R27.1 R26.1 
+'N$18' ; C22.2 U2.12 
+'N$19' ; U2.6 U1.1 
+'N$20' ; U2.7 U1.16 
+'N$21' ; U3.3 R23.1 
+'N$22' ; R19.1 C22.1 U3.6 
+'N$24' ; R3.1 R4.1 U2.18 
+'N$25' ; U2.11 U3.11 
+'N$26' ; U3.12 U2.9 
+'N$27' ; U2.8 U3.13 
+'N$28' ; 
+'N$29' ; R21.1 C19.2 R20.2 
+'N$31' ; R2.2 R4.2 U1.10 
+'N$32' ; U2.17 U1.7 
+'N$37' ; R13.1 R14.2 U3.9 
+'N$39' ; R22.2 R27.2 U1.9 
+'N$40' ; R23.2 R26.2 U1.8 
+'N$41' ; U3.7 R20.1 C16.2 
+'N$42' ; U3.8 R13.2 C16.1 
+'N$43' ; R14.1 U3.10 C19.1 U2.13 
+'N$46' ; R15.2 U3.18 R16.2 C18.2 
+'N$49' ; U3.19 R18.2 R21.2 
+'N$50' ; C21.1 U3.20 R17.2 
+'N$51' ; R17.1 R18.1 R19.2 
+'N$54' ; U3.4 C20.2 
+'N$57' ; U3.1 C21.2 
+'VSS' ; U2.31 U2.39 U2.10 U2.28 U2.24 U2.21 U2.27 U2.29 U1.14 ,
+   U3.15 C17.2 R15.1 U3.17 
+$END

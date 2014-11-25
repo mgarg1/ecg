@@ -1,0 +1,52 @@
+Partlist
+
+Exported from NBMC_SCHEMATIC_wout_thermistor_bridge_ext_volt_ref.sch at 10/15/14 6:59 PM
+
+EAGLE Version 6.6.0 Copyright (c) 1988-2014 CadSoft
+
+Assembly variant: 
+
+Part           Value          Device         Package         Library             Sheet
+
+2450AT18A100E1 Ant Chip       ANTENNA        PAD-01          discrete            1
+C1             1nF            C-EUC0402      C0402           rcl                 1
+C2             20µF           C-EUC0402      C0402           rcl                 1
+C3             10µF           C-EUC0402      C0402           rcl                 1
+C4             20µF           C-EUC0402      C0402           rcl                 1
+C16            10nF           C-EUC0402      C0402           rcl                 1
+C17            0.1µF          C-EUC0402      C0402           rcl                 1
+C18            0.1µF          C-EUC0402      C0402           rcl                 1
+C19            1.5nF          C-EUC0402      C0402           rcl                 1
+C20            1nF            C-EUC0402      C0402           rcl                 1
+C21            0.33µF         C-EUC0402      C0402           rcl                 1
+C221           12pF           C-EUC0402      C0402           rcl                 1
+C231           12pF           C-EUC0402      C0402           rcl                 1
+C321           15pF           C-EUC0402      C0402           rcl                 1
+C331           15pF           C-EUC0402      C0402           rcl                 1
+C401           1µF            C-EUC0402      C0402           rcl                 1
+R1             THERMISTOR-2,5 THERMISTOR-2,5 RS-2,5          varistor            1
+R13            100k?          R-US_R0402     R0402           rcl                 1
+R14            1M?            R-US_R0402     R0402           rcl                 1
+R15            10M?           R-US_R0402     R0402           rcl                 1
+R16            10M?           R-US_R0402     R0402           rcl                 1
+R17            10M?           R-US_R0402     R0402           rcl                 1
+R18            10M?           R-US_R0402     R0402           rcl                 1
+R19            1.4M?          R-US_R0402     R0402           rcl                 1
+R20            1M?            R-US_R0402     R0402           rcl                 1
+R21            1M?            R-US_R0402     R0402           rcl                 1
+R22            180k?          R-US_R0402     R0402           rcl                 1
+R23            180k?          R-US_R0402     R0402           rcl                 1
+R26            10M?           R-US_R0402     R0402           rcl                 1
+R27            10M?           R-US_R0402     R0402           rcl                 1
+R121           1.15M?         R-US_R0402     R0402           rcl                 1
+R122           0.1M?          R-US_R0402     R0402           rcl                 1
+R191           0?             R-US_R0402     R0402           rcl                 1
+R201           2.7k?          R-US_R0402     R0402           rcl                 1
+R301           56K?           R-US_R0402     R0402           rcl                 1
+U$1            LM4121         LM4121         0402            LM4121              1
+U1             ADG709BRU      ADG709BRU      RU_16           ADG709              1
+U2             CC2541         CC2541         RHA_S-PVQFN-N40 ST-CC254X           1
+U3             AD8232ACPZ_R7  AD8232ACPZ_R7  CP_20_10        AD8232              1
+U4             2450BM15A0002  2450BM15A0002  2450BM15A0002   johanson-technology 1
+XTAL1          32MHz          XTAL           Q               special             1
+XTAL2          32.768kHz      XTAL           Q               special             1

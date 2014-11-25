@@ -1,0 +1,44 @@
+Partlist
+
+Exported from NBMC_SCHEMATIC_with_LBM313.sch at 11/7/14 11:50 PM
+
+EAGLE Version 6.6.0 Copyright (c) 1988-2014 CadSoft
+
+Assembly variant: 
+
+Part     Value              Device         Package     Library     Sheet
+
+C11      1µF                C-EUC0402      C0402       rcl         1
+C12      1µF                C-EUC0402      C0402       rcl         1
+C14      10µF               C-EUC0402      C0402       rcl         1
+C16      10nF               C-EUC0402      C0402       rcl         1
+C17      0.1µF              C-EUC0402      C0402       rcl         1
+C18      0.1µF              C-EUC0402      C0402       rcl         1
+C19      1.5nF              C-EUC0402      C0402       rcl         1
+C20      1nF                C-EUC0402      C0402       rcl         1
+C21      0.33µF             C-EUC0402      C0402       rcl         1
+C29      15pF               C-EUC0402      C0402       rcl         1
+C30      15pF               C-EUC0402      C0402       rcl         1
+G1       CR2032H            CR2032H        CR2032H     battery     1
+G2       CR2032 Batt Holder CR2032SMT      CR2032-SMD  adafruit    1
+JP1      10 pin connector   PINHD-2X5      2X05        pinhead     1
+MOD1     LBM313-2540        LBM313-2540    LBM313-2540 LBM313-2540 1
+Q1       32.768kHz          XTAL           Q           special     1
+R13      100k?              R-US_R0402     R0402       rcl         1
+R14      1M?                R-US_R0402     R0402       rcl         1
+R15      10M?               R-US_R0402     R0402       rcl         1
+R16      10M?               R-US_R0402     R0402       rcl         1
+R17      10M?               R-US_R0402     R0402       rcl         1
+R18      10M?               R-US_R0402     R0402       rcl         1
+R19      1.4M?              R-US_R0402     R0402       rcl         1
+R20      1M?                R-US_R0402     R0402       rcl         1
+R21      1M?                R-US_R0402     R0402       rcl         1
+R22      180k?              R-US_R0402     R0402       rcl         1
+R23      180k?              R-US_R0402     R0402       rcl         1
+R26      10M?               R-US_R0402     R0402       rcl         1
+R27      10M?               R-US_R0402     R0402       rcl         1
+R181     10M?               R-US_R0402     R0402       rcl         1
+R182     10M?               R-US_R0402     R0402       rcl         1
+R191     50k?               R-US_R0402     R0402       rcl         1
+TR1      THERMISTOR-2,5     THERMISTOR-2,5 RS-2,5      varistor    1
+U3       AD8232ACPZ_R7      AD8232ACPZ_R7  CP_20_10    AD8232      1
