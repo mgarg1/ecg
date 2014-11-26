@@ -7635,8 +7635,8 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <part name="C11" library="rcl" deviceset="C-EU" device="C0402" value="1µF"/>
 <part name="SUPPLY1" library="supply2" deviceset="GND" device=""/>
 <part name="SUPPLY3" library="supply2" deviceset="GND" device=""/>
-<part name="C29" library="rcl" deviceset="C-EU" device="C0402" value="15pF"/>
-<part name="C30" library="rcl" deviceset="C-EU" device="C0402" value="15pF"/>
+<part name="C291" library="rcl" deviceset="C-EU" device="C0402" value="15pF"/>
+<part name="C301" library="rcl" deviceset="C-EU" device="C0402" value="15pF"/>
 <part name="VSS2" library="supply1" deviceset="VSS" device="" value="+VS"/>
 <part name="SUPPLY9" library="supply2" deviceset="GND" device=""/>
 <part name="JP1" library="pinhead" deviceset="PINHD-2X5" device="" value="10 pin connector"/>
@@ -7655,15 +7655,15 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <part name="TP4" library="testpad" deviceset="TPS" device="TP09R"/>
 <part name="TP5" library="testpad" deviceset="TPS" device="TP09R"/>
 <part name="TP6" library="testpad" deviceset="TPS" device="TP09R"/>
-<part name="C1" library="rcl" deviceset="C-EU" device="C0402" value="0.1µF"/>
+<part name="C181" library="rcl" deviceset="C-EU" device="C0402" value="0.1µF"/>
 <part name="SUPPLY8" library="supply2" deviceset="GND" device=""/>
-<part name="C2" library="rcl" deviceset="C-EU" device="C0402" value="0.1µF"/>
+<part name="C191" library="rcl" deviceset="C-EU" device="C0402" value="0.1µF"/>
 <part name="SUPPLY15" library="supply2" deviceset="GND" device=""/>
 <part name="TP7" library="testpad" deviceset="TPS" device="TP09R"/>
 <part name="TP8" library="testpad" deviceset="TPS" device="TP09R"/>
 <part name="SUPPLY16" library="supply2" deviceset="GND" device=""/>
 <part name="SUPPLY17" library="supply2" deviceset="GND" device=""/>
-<part name="C3" library="rcl" deviceset="C-EU" device="C0402" value="100µF"/>
+<part name="C31" library="rcl" deviceset="C-EU" device="C0402" value="100µF"/>
 <part name="SUPPLY18" library="supply2" deviceset="GND" device=""/>
 <part name="VSS6" library="supply1" deviceset="VSS" device="" value="+VS"/>
 </parts>
@@ -7729,8 +7729,8 @@ PAD</text>
 <instance part="C11" gate="G$1" x="-101.6" y="-53.34"/>
 <instance part="SUPPLY1" gate="GND" x="-101.6" y="-66.04"/>
 <instance part="SUPPLY3" gate="GND" x="-104.14" y="35.56" rot="R180"/>
-<instance part="C29" gate="G$1" x="-38.1" y="43.18" rot="R270"/>
-<instance part="C30" gate="G$1" x="-40.64" y="53.34" rot="R90"/>
+<instance part="C291" gate="G$1" x="-38.1" y="43.18" rot="R270"/>
+<instance part="C301" gate="G$1" x="-40.64" y="53.34" rot="R90"/>
 <instance part="VSS2" gate="G$1" x="-58.42" y="-71.12" rot="R180"/>
 <instance part="SUPPLY9" gate="GND" x="-78.74" y="-73.66" rot="R180"/>
 <instance part="JP1" gate="A" x="-71.12" y="-83.82"/>
@@ -7749,15 +7749,15 @@ PAD</text>
 <instance part="TP4" gate="G$1" x="53.34" y="-53.34" rot="R180"/>
 <instance part="TP5" gate="G$1" x="40.64" y="55.88"/>
 <instance part="TP6" gate="G$1" x="48.26" y="60.96"/>
-<instance part="C1" gate="G$1" x="7.62" y="86.36"/>
+<instance part="C181" gate="G$1" x="7.62" y="86.36"/>
 <instance part="SUPPLY8" gate="GND" x="7.62" y="93.98" rot="R180"/>
-<instance part="C2" gate="G$1" x="12.7" y="86.36"/>
+<instance part="C191" gate="G$1" x="12.7" y="86.36"/>
 <instance part="SUPPLY15" gate="GND" x="12.7" y="93.98" rot="R180"/>
 <instance part="TP7" gate="G$1" x="38.1" y="-81.28" rot="R180"/>
 <instance part="TP8" gate="G$1" x="45.72" y="-81.28" rot="R180"/>
 <instance part="SUPPLY16" gate="GND" x="38.1" y="-73.66" rot="R180"/>
 <instance part="SUPPLY17" gate="GND" x="45.72" y="-73.66" rot="R180"/>
-<instance part="C3" gate="G$1" x="15.24" y="-81.28" rot="R270"/>
+<instance part="C31" gate="G$1" x="15.24" y="-81.28" rot="R270"/>
 <instance part="SUPPLY18" gate="GND" x="7.62" y="-81.28" rot="R270"/>
 <instance part="VSS6" gate="G$1" x="20.32" y="-81.28" rot="R90"/>
 </instances>
@@ -7867,11 +7867,11 @@ PAD</text>
 <junction x="-104.14" y="25.4"/>
 </segment>
 <segment>
-<pinref part="C29" gate="G$1" pin="2"/>
+<pinref part="C291" gate="G$1" pin="2"/>
 <pinref part="SUPPLY6" gate="GND" pin="GND"/>
 </segment>
 <segment>
-<pinref part="C30" gate="G$1" pin="1"/>
+<pinref part="C301" gate="G$1" pin="1"/>
 <pinref part="SUPPLY7" gate="GND" pin="GND"/>
 </segment>
 <segment>
@@ -7897,12 +7897,12 @@ PAD</text>
 <junction x="17.78" y="76.2"/>
 </segment>
 <segment>
-<pinref part="C1" gate="G$1" pin="1"/>
+<pinref part="C181" gate="G$1" pin="1"/>
 <pinref part="SUPPLY8" gate="GND" pin="GND"/>
 <wire x1="7.62" y1="88.9" x2="7.62" y2="91.44" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="C2" gate="G$1" pin="1"/>
+<pinref part="C191" gate="G$1" pin="1"/>
 <pinref part="SUPPLY15" gate="GND" pin="GND"/>
 <wire x1="12.7" y1="88.9" x2="12.7" y2="91.44" width="0.1524" layer="91"/>
 </segment>
@@ -7917,7 +7917,7 @@ PAD</text>
 <wire x1="45.72" y1="-78.74" x2="45.72" y2="-76.2" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="C3" gate="G$1" pin="2"/>
+<pinref part="C31" gate="G$1" pin="2"/>
 <pinref part="SUPPLY18" gate="GND" pin="GND"/>
 </segment>
 </net>
@@ -8125,7 +8125,7 @@ PAD</text>
 <wire x1="-17.78" y1="-83.82" x2="-22.86" y2="-83.82" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="C3" gate="G$1" pin="1"/>
+<pinref part="C31" gate="G$1" pin="1"/>
 <pinref part="VSS6" gate="G$1" pin="VSS"/>
 </segment>
 </net>
@@ -8148,7 +8148,7 @@ PAD</text>
 <wire x1="83.82" y1="78.74" x2="81.28" y2="78.74" width="0.1524" layer="91"/>
 <pinref part="TP2" gate="G$1" pin="PP"/>
 <junction x="35.56" y="66.04"/>
-<pinref part="C2" gate="G$1" pin="2"/>
+<pinref part="C191" gate="G$1" pin="2"/>
 <wire x1="12.7" y1="81.28" x2="12.7" y2="66.04" width="0.1524" layer="91"/>
 <wire x1="12.7" y1="66.04" x2="17.78" y2="66.04" width="0.1524" layer="91"/>
 </segment>
@@ -8306,7 +8306,7 @@ PAD</text>
 <net name="VSS1" class="0">
 <segment>
 <wire x1="-25.4" y1="48.26" x2="-25.4" y2="43.18" width="0.1524" layer="91"/>
-<pinref part="C29" gate="G$1" pin="1"/>
+<pinref part="C291" gate="G$1" pin="1"/>
 <wire x1="-25.4" y1="43.18" x2="-33.02" y2="43.18" width="0.1524" layer="91"/>
 <wire x1="-33.02" y1="43.18" x2="-35.56" y2="43.18" width="0.1524" layer="91"/>
 <junction x="-33.02" y="43.18"/>
@@ -8322,7 +8322,7 @@ PAD</text>
 <wire x1="-25.4" y1="53.34" x2="-33.02" y2="53.34" width="0.1524" layer="91"/>
 <wire x1="-33.02" y1="53.34" x2="-35.56" y2="53.34" width="0.1524" layer="91"/>
 <junction x="-33.02" y="53.34"/>
-<pinref part="C30" gate="G$1" pin="2"/>
+<pinref part="C301" gate="G$1" pin="2"/>
 <pinref part="Q1" gate="G$1" pin="2"/>
 <wire x1="-25.4" y1="50.8" x2="-5.08" y2="50.8" width="0.1524" layer="91"/>
 <pinref part="MOD1" gate="G$1" pin="P2_3/XOSC32_Q2"/>
@@ -8342,7 +8342,7 @@ PAD</text>
 <wire x1="-2.54" y1="-2.54" x2="-7.62" y2="-2.54" width="0.1524" layer="91"/>
 <junction x="-2.54" y="66.04"/>
 <pinref part="TP1" gate="G$1" pin="PP"/>
-<pinref part="C1" gate="G$1" pin="2"/>
+<pinref part="C181" gate="G$1" pin="2"/>
 <wire x1="2.54" y1="66.04" x2="7.62" y2="66.04" width="0.1524" layer="91"/>
 <wire x1="7.62" y1="66.04" x2="7.62" y2="81.28" width="0.1524" layer="91"/>
 </segment>

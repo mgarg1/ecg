@@ -1,44 +1,27 @@
-Partlist
+Partlist exported from /home/mohit/Documents/eagle/LBM313/NBMC_SCHEMATIC_with_LBM313.sch at 11/25/14 8:00 PM
 
-Exported from NBMC_SCHEMATIC_with_LBM313.sch at 11/7/14 11:50 PM
-
-EAGLE Version 6.6.0 Copyright (c) 1988-2014 CadSoft
-
-Assembly variant: 
-
-Part     Value              Device         Package     Library     Sheet
-
-C11      1�F                C-EUC0402      C0402       rcl         1
-C12      1�F                C-EUC0402      C0402       rcl         1
-C14      10�F               C-EUC0402      C0402       rcl         1
-C16      10nF               C-EUC0402      C0402       rcl         1
-C17      0.1�F              C-EUC0402      C0402       rcl         1
-C18      0.1�F              C-EUC0402      C0402       rcl         1
-C19      1.5nF              C-EUC0402      C0402       rcl         1
-C20      1nF                C-EUC0402      C0402       rcl         1
-C21      0.33�F             C-EUC0402      C0402       rcl         1
-C29      15pF               C-EUC0402      C0402       rcl         1
-C30      15pF               C-EUC0402      C0402       rcl         1
-G1       CR2032H            CR2032H        CR2032H     battery     1
-G2       CR2032 Batt Holder CR2032SMT      CR2032-SMD  adafruit    1
-JP1      10 pin connector   PINHD-2X5      2X05        pinhead     1
-MOD1     LBM313-2540        LBM313-2540    LBM313-2540 LBM313-2540 1
-Q1       32.768kHz          XTAL           Q           special     1
-R13      100k?              R-US_R0402     R0402       rcl         1
-R14      1M?                R-US_R0402     R0402       rcl         1
-R15      10M?               R-US_R0402     R0402       rcl         1
-R16      10M?               R-US_R0402     R0402       rcl         1
-R17      10M?               R-US_R0402     R0402       rcl         1
-R18      10M?               R-US_R0402     R0402       rcl         1
-R19      1.4M?              R-US_R0402     R0402       rcl         1
-R20      1M?                R-US_R0402     R0402       rcl         1
-R21      1M?                R-US_R0402     R0402       rcl         1
-R22      180k?              R-US_R0402     R0402       rcl         1
-R23      180k?              R-US_R0402     R0402       rcl         1
-R26      10M?               R-US_R0402     R0402       rcl         1
-R27      10M?               R-US_R0402     R0402       rcl         1
-R181     10M?               R-US_R0402     R0402       rcl         1
-R182     10M?               R-US_R0402     R0402       rcl         1
-R191     50k?               R-US_R0402     R0402       rcl         1
-TR1      THERMISTOR-2,5     THERMISTOR-2,5 RS-2,5      varistor    1
-U3       AD8232ACPZ_R7      AD8232ACPZ_R7  CP_20_10    AD8232      1
+Qty Value              Device         Package     Parts                                    Description                                                                              TP_SIGNAL_NAME
+4   0.1µF              C-EUC0402      C0402       C1, C2, C17, C18                         CAPACITOR, European symbol                                                                             
+1   0.33µF             C-EUC0402      C0402       C21                                      CAPACITOR, European symbol                                                                             
+1   1.4MΩ              R-US_R0402     R0402       R19                                      RESISTOR, American symbol                                                                              
+1   1.5nF              C-EUC0402      C0402       C19                                      CAPACITOR, European symbol                                                                             
+1   10 pin connector   PINHD-2X5      2X05        JP1                                      PIN HEADER                                                                                             
+1   100kΩ              R-US_R0402     R0402       R13                                      RESISTOR, American symbol                                                                              
+1   100µF              C-EUC0402      C0402       C3                                       CAPACITOR, European symbol                                                                             
+8   10MΩ               R-US_R0402     R0402       R15, R16, R17, R18, R26, R27, R181, R182 RESISTOR, American symbol                                                                              
+1   10nF               C-EUC0402      C0402       C16                                      CAPACITOR, European symbol                                                                             
+1   10µF               C-EUC0402      C0402       C14                                      CAPACITOR, European symbol                                                                             
+2   15pF               C-EUC0402      C0402       C29, C30                                 CAPACITOR, European symbol                                                                             
+2   180kΩ              R-US_R0402     R0402       R22, R23                                 RESISTOR, American symbol                                                                              
+2   1MΩ                R-US_R0402     R0402       R14, R21                                 RESISTOR, American symbol                                                                              
+1   1MΩ                R-US_R0402     R0402       R20                                      RESISTOR, American symbol                                                                              
+1   1X4-3.5MM          1X4-3.5MM      1X04-3.5MM  JP2                                      4-pin connector                                                                                        
+1   1nF                C-EUC0402      C0402       C20                                      CAPACITOR, European symbol                                                                             
+2   1µF                C-EUC0402      C0402       C11, C12                                 CAPACITOR, European symbol                                                                             
+1   32.768kHz          XTAL           Q           Q1                                       CRYSTAL                                                                                                
+1   50kΩ               R-US_R0402     R0402       R191                                     RESISTOR, American symbol                                                                              
+1   AD8232ACPZ_R7      AD8232ACPZ_R7  CP_20_10    U3                                                                                                                                              
+1   CR2032_BATT_HOLDER CR2032SMT      CR2032-SMD  G2                                                                                                                                              
+1   LBM313-2540        LBM313-2540    LBM313-2540 MOD1                                     Bluetooth 4.0 Module.  Documentation at: http://punchthrough.com/docs/doku.php?id=lbm313               
+1   THERMISTOR-2,5     THERMISTOR-2,5 RS-2,5      TR1                                      THERMISTOR                                                                                             
+8   TPSTP09R           TPSTP09R       TP09R       TP1, TP2, TP3, TP4, TP5, TP6, TP7, TP8   TEST PIN                                                                                               
