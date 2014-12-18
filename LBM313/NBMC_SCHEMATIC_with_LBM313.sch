@@ -10828,7 +10828,7 @@ Metric Code Size 5664</description>
 <part name="R17" library="rcl" deviceset="R-US_" device="R0402" value="10MΩ"/>
 <part name="R18" library="rcl" deviceset="R-US_" device="R0402" value="10MΩ"/>
 <part name="R19" library="rcl" deviceset="R-US_" device="R0402" value="1.4MΩ"/>
-<part name="R20" library="rcl" deviceset="R-US_" device="R0402" value="1MΩ "/>
+<part name="R20" library="rcl" deviceset="R-US_" device="R0402" value="1MΩ"/>
 <part name="R21" library="rcl" deviceset="R-US_" device="R0402" value="1MΩ"/>
 <part name="C19" library="rcl" deviceset="C-EU" device="C0402" value="1.5nF"/>
 <part name="C20" library="rcl" deviceset="C-EU" device="C0402" value="1nF"/>
@@ -10847,8 +10847,8 @@ Metric Code Size 5664</description>
 <part name="FRAME1" library="frames" deviceset="FRAME_A_L" device=""/>
 <part name="C14" library="rcl" deviceset="C-EU" device="C0402" value="10µF"/>
 <part name="SUPPLY14" library="supply2" deviceset="GND" device=""/>
-<part name="R181" library="rcl" deviceset="R-US_" device="R0402" value="10MΩ"/>
-<part name="R182" library="rcl" deviceset="R-US_" device="R0402" value="10MΩ"/>
+<part name="R181" library="rcl" deviceset="R-US_" device="R0402" value="330kΩ"/>
+<part name="R182" library="rcl" deviceset="R-US_" device="R0402" value="330kΩ"/>
 <part name="SUPPLY4" library="supply2" deviceset="GND" device=""/>
 <part name="MOD1" library="LBM313-2540" deviceset="LBM313-2540" device=""/>
 <part name="VSS3" library="supply1" deviceset="VSS" device="" value="+VS"/>
@@ -10873,7 +10873,6 @@ Metric Code Size 5664</description>
 <part name="TP2" library="testpad" deviceset="TPS" device="TP09R"/>
 <part name="TP3" library="testpad" deviceset="TPS" device="TP09R"/>
 <part name="TP6" library="testpad" deviceset="TPS" device="TP09R"/>
-<part name="TP4" library="testpad" deviceset="TPS" device="TP09R"/>
 <part name="TP5" library="testpad" deviceset="TPS" device="TP09R"/>
 <part name="C181" library="rcl" deviceset="C-EU" device="C0402" value="0.1µF"/>
 <part name="SUPPLY8" library="supply2" deviceset="GND" device=""/>
@@ -10889,6 +10888,7 @@ Metric Code Size 5664</description>
 <part name="R28" library="rcl" deviceset="R-US_" device="R0402" value="4.7kΩ"/>
 <part name="C32" library="rcl" deviceset="C-EU" device="C0402" value="1nF"/>
 <part name="SUPPLY19" library="supply2" deviceset="GND" device=""/>
+<part name="TP4" library="testpad" deviceset="TPS" device="TP09R"/>
 </parts>
 <sheets>
 <sheet>
@@ -10968,7 +10968,6 @@ PAD</text>
 <instance part="TP2" gate="G$1" x="35.56" y="68.58"/>
 <instance part="TP3" gate="G$1" x="142.24" y="12.7"/>
 <instance part="TP6" gate="G$1" x="53.34" y="-53.34" rot="R180"/>
-<instance part="TP4" gate="G$1" x="40.64" y="60.96"/>
 <instance part="TP5" gate="G$1" x="48.26" y="53.34"/>
 <instance part="C181" gate="G$1" x="7.62" y="86.36"/>
 <instance part="SUPPLY8" gate="GND" x="7.62" y="93.98" rot="R180"/>
@@ -10984,6 +10983,7 @@ PAD</text>
 <instance part="R28" gate="G$1" x="-17.78" y="-55.88" rot="R180"/>
 <instance part="C32" gate="G$1" x="-5.08" y="-53.34" rot="R180"/>
 <instance part="SUPPLY19" gate="GND" x="-5.08" y="-45.72" rot="R180"/>
+<instance part="TP4" gate="G$1" x="40.64" y="60.96"/>
 </instances>
 <busses>
 </busses>
@@ -11487,11 +11487,12 @@ PAD</text>
 <wire x1="40.64" y1="15.24" x2="40.64" y2="27.94" width="0.1524" layer="91"/>
 <wire x1="40.64" y1="27.94" x2="40.64" y2="58.42" width="0.1524" layer="91"/>
 <junction x="40.64" y="27.94"/>
-<pinref part="TP4" gate="G$1" pin="PP"/>
 <pinref part="JP2" gate="G$1" pin="1"/>
 <wire x1="83.82" y1="71.12" x2="81.28" y2="71.12" width="0.1524" layer="91"/>
 <wire x1="83.82" y1="58.42" x2="83.82" y2="71.12" width="0.1524" layer="91"/>
 <wire x1="83.82" y1="58.42" x2="40.64" y2="58.42" width="0.1524" layer="91"/>
+<pinref part="TP4" gate="G$1" pin="PP"/>
+<junction x="40.64" y="58.42"/>
 </segment>
 </net>
 <net name="N$23" class="0">
@@ -11592,8 +11593,6 @@ PAD</text>
 <approved hash="110,1,58.42,15.24,N$22,LA,,,,"/>
 <approved hash="111,1,58.42,15.24,N$22,,,,,"/>
 <approved hash="111,1,58.42,7.62,N$22,,,,,"/>
-<approved hash="111,1,-7.62,-33.02,N$23,,,,,"/>
-<approved hash="113,1,27.836,8.786,FRAME1,,,,,"/>
 </errors>
 </schematic>
 </drawing>
