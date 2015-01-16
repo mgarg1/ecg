@@ -23,7 +23,7 @@ import streamplot
 
 def main():
     print "Connecting to BLE Dongle . . ."
-    bt = ble.BTDongle(port='/dev/ttyACM0')
+    bt = ble.BTDongle(port='COM8')
 
     print "Discovering BLE devices in the vicinity . . ."
     devs = bt.discover()
