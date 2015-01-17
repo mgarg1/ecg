@@ -1,0 +1,7 @@
+C:\Users\mohit\Downloads\BluetoothLeGatt\BluetoothLeGatt\Application\build\intermediates\classes\debug
+C:\Users\mohit\Downloads\BluetoothLeGatt\BluetoothLeGatt\Application\build\intermediates\pre-dexed\debug\internal_impl-21.0.2-24d38186707ce5691d15c0b833033c018499d400.jar
+C:\Users\mohit\Downloads\BluetoothLeGatt\BluetoothLeGatt\Application\build\intermediates\pre-dexed\debug\support-annotations-21.0.2-b8752aa791ef7f693920b21538d24f9baba78135.jar
+C:\Users\mohit\Downloads\BluetoothLeGatt\BluetoothLeGatt\Application\build\intermediates\pre-dexed\debug\classes-5f1fa51f622d9780bc911a06920f55913c50760a.jar
+C:\Users\mohit\Downloads\BluetoothLeGatt\BluetoothLeGatt\Application\build\intermediates\pre-dexed\debug\classes-4a1488b016571febaf6673126fb13880d1081f13.jar
+C:\Users\mohit\Downloads\BluetoothLeGatt\BluetoothLeGatt\Application\build\intermediates\pre-dexed\debug\internal_impl-21.0.2-380c22467fd949e84e7d63700982e968a46ccdb8.jar
+C:\Users\mohit\Downloads\BluetoothLeGatt\BluetoothLeGatt\Application\build\intermediates\pre-dexed\debug\classes-a03ef71b1e1c8e838a92557f3587f0511149c4f9.jar

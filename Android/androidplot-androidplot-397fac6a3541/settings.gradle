@@ -1,0 +1,3 @@
+rootProject.name = 'androidplot'
+include 'AndroidPlot-Core'
+include ':Examples:DemoApp'

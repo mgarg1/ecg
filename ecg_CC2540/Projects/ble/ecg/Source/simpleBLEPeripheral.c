@@ -459,7 +459,7 @@ uint16 SimpleBLEPeripheral_ProcessEvent( uint8 task_id, uint16 events )
       // Release the OSAL message
       VOID osal_msg_deallocate( pMsg );
     }
-    
+
     // return unprocessed events
     return (events ^ SYS_EVENT_MSG);
   }
@@ -751,13 +751,19 @@ void ECG_Init()
 void ECG_ADC_Init()
 {
   ADCCON1 = (2 << 4); // trigger with Timer1 channel 0
-  ADCCON2 = (3 << 6) | (3 << 4) | (4 << 0); // Vref = AIN6-AIN7; 12 bits ENOB; AIN4 pin input
+  //ADCCON2 = (3 << 6) | (3 << 4) | (4 << 0); // Vref = AIN6-AIN7; 12 bits ENOB; AIN4 pin input
+  // ADCCON2 = (3 << 4) | (4 << 0); // Vref = internal; 12 bits ENOB; AIN4 pin input
+  //ADCCON2 = (1 << 6) | (3 << 4) | (6 << 0); // Vref = EXTERNAL on AIN7; 12 bits ENOB; AIN6 pin input
   // AIN7 is grounded. AIN6 is connected to P0.5
-  P0DIR &= ~(1 << 5); // P0.5 is hi-z
+  // P0DIR &= ~(1 << 5); // P0.5 is hi-z
+  HalAdcInit();
+  HalAdcSetReference( HAL_ADC_REF_AVDD );
+   //HalAdcSetReference( HAL_ADC_REF_125V );
+  // HalAdcSetReference( HAL_ADC_REF_DIFF );
 }
 void ECG_Timer_Init()
 {
-  // 2.5 ms tick
+  // 2.5 ms tick(1000/2.5 = 400Hz)
 #define TOP 9999
   T1CC0L = (uint8) TOP;
   T1CC0H = (uint8) (TOP >> 8); // TOP value
@@ -776,9 +782,10 @@ void ECG_Timer_Init()
 __interrupt void ECG_TimerInterrupt( void ) 
 {
   //P1 ^= 1; // for debugging
-  uint16 adcVal = ADCL;
-  adcVal |= (ADCH << 8);
-  adcVal = (adcVal >> 2);
+  uint16 adcVal; //= ADCL;
+  // adcVal |= (ADCH << 8);
+  // adcVal = (adcVal >> 2);
+  adcVal = HalAdcRead( HAL_ADC_CHN_AIN4, HAL_ADC_RESOLUTION_12);
   circBufferAdd(&cBuf, adcVal);
 }
 
@@ -803,8 +810,8 @@ static void performPeriodicTask( void )
     for(i = 0;i < SIMPLEPROFILE_CHAR4_LEN/2;i++)
     {
       circBufferRemove(&cBuf, &tmp);
-      valueToCopy[2*i] = (uint8) tmp ;
-      valueToCopy[2*i+1] = (uint8) (tmp >> 8);
+      valueToCopy[2*i] = (uint8) (tmp & 0xff);//lsb
+      valueToCopy[2*i+1] = (uint8) ((tmp >> 8) & (0xff));//msb
     }
     
     SimpleProfile_SetParameter( SIMPLEPROFILE_CHAR4, SIMPLEPROFILE_CHAR4_LEN*sizeof(uint8), valueToCopy);

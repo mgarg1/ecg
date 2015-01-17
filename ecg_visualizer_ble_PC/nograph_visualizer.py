@@ -21,6 +21,11 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 import CC2540ble as ble
 # import streamplot
 
+# def my_range(start, end, step):
+#     while start <= end:
+#         yield start
+#         start += step
+
 def main():
     print "Connecting to BLE Dongle . . ."
     bt = ble.BTDongle(port='COM8')
@@ -43,16 +48,19 @@ def main():
     # Tsample = 1/400.0 # in seconds
     # t = 0
 
-
     for evt in bt.pollNotifications():
         if len(evt) == 16:
-            f2s = lambda x: x if x < 2**13 or x >= 65530 else (-2**14 + x)
-            vals = [ f2s(lsb + 256*msb) for (lsb, msb) in zip(evt[::2], evt[1::2]) ]
-            vals = [ val for val in vals if val < 65530 ]
-            for val in vals:
-                print val
-                # t += Tsample
-                # ecgPlot.addDataPoint(t, [val])
+            # print evt
+            vals = [hex(val) for val in evt]
+            # f2s = lambda x: x if x < 2**11 or x >= 65530 else (-2**12 + x)
+            # vals = [ f2s(lsb + 256*msb) for (lsb, msb) in zip(evt[::2], evt[1::2]) ]
+            vals = [ lsb | (msb<<8) for (lsb, msb) in zip(evt[::2], evt[1::2]) ]
+            # vals = [ val for val in vals if(val < 65530 and val > 0)]
+            print vals
+            # for val in vals:
+            #     print val
+            #     # t += Tsample
+            #     # ecgPlot.addDataPoint(t, [val])
 
 if __name__ == '__main__':
     main()

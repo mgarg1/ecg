@@ -6,3 +6,5 @@
 *.map
 *.pbi
 *.pbd
+*.cout
+*.bak
