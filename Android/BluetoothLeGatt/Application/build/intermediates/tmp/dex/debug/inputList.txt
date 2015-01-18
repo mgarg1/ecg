@@ -1,7 +1,7 @@
-C:\Users\mohit\Downloads\BluetoothLeGatt\BluetoothLeGatt\Application\build\intermediates\classes\debug
-C:\Users\mohit\Downloads\BluetoothLeGatt\BluetoothLeGatt\Application\build\intermediates\pre-dexed\debug\internal_impl-21.0.2-24d38186707ce5691d15c0b833033c018499d400.jar
-C:\Users\mohit\Downloads\BluetoothLeGatt\BluetoothLeGatt\Application\build\intermediates\pre-dexed\debug\support-annotations-21.0.2-b8752aa791ef7f693920b21538d24f9baba78135.jar
-C:\Users\mohit\Downloads\BluetoothLeGatt\BluetoothLeGatt\Application\build\intermediates\pre-dexed\debug\classes-5f1fa51f622d9780bc911a06920f55913c50760a.jar
-C:\Users\mohit\Downloads\BluetoothLeGatt\BluetoothLeGatt\Application\build\intermediates\pre-dexed\debug\classes-4a1488b016571febaf6673126fb13880d1081f13.jar
-C:\Users\mohit\Downloads\BluetoothLeGatt\BluetoothLeGatt\Application\build\intermediates\pre-dexed\debug\internal_impl-21.0.2-380c22467fd949e84e7d63700982e968a46ccdb8.jar
-C:\Users\mohit\Downloads\BluetoothLeGatt\BluetoothLeGatt\Application\build\intermediates\pre-dexed\debug\classes-a03ef71b1e1c8e838a92557f3587f0511149c4f9.jar
+C:\Users\mohit\Desktop\NBMC_Project\ecg\Android\BluetoothLeGatt\Application\build\intermediates\classes\debug
+C:\Users\mohit\Desktop\NBMC_Project\ecg\Android\BluetoothLeGatt\Application\build\intermediates\pre-dexed\debug\internal_impl-21.0.2-8ebbc263ad53806d63095860c9af35b756f6e820.jar
+C:\Users\mohit\Desktop\NBMC_Project\ecg\Android\BluetoothLeGatt\Application\build\intermediates\pre-dexed\debug\support-annotations-21.0.2-b8752aa791ef7f693920b21538d24f9baba78135.jar
+C:\Users\mohit\Desktop\NBMC_Project\ecg\Android\BluetoothLeGatt\Application\build\intermediates\pre-dexed\debug\classes-3411cea97a7a49cd5b14c5f6cc2da01509a3eb8a.jar
+C:\Users\mohit\Desktop\NBMC_Project\ecg\Android\BluetoothLeGatt\Application\build\intermediates\pre-dexed\debug\classes-53aedaaf6633a4929487d5a55c5920723a60678f.jar
+C:\Users\mohit\Desktop\NBMC_Project\ecg\Android\BluetoothLeGatt\Application\build\intermediates\pre-dexed\debug\internal_impl-21.0.2-81f189868740bda604251d7c963f9b130662219a.jar
+C:\Users\mohit\Desktop\NBMC_Project\ecg\Android\BluetoothLeGatt\Application\build\intermediates\pre-dexed\debug\classes-7fd10a7327951d70120f01703a9f8243db2020d3.jar

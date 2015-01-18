@@ -12,7 +12,7 @@
           
           
           
-        <Column0>315</Column0><Column1>27</Column1><Column2>27</Column2><Column3>27</Column3></ColumnWidths>
+        <Column0>325</Column0><Column1>25</Column1><Column2>30</Column2><Column3>0</Column3></ColumnWidths>
       </Workspace>
     <Build><ColumnWidth0>20</ColumnWidth0><ColumnWidth1>1395</ColumnWidth1><ColumnWidth2>372</ColumnWidth2><ColumnWidth3>93</ColumnWidth3></Build><Debug-Log><ColumnWidth0>25</ColumnWidth0><ColumnWidth1>1216</ColumnWidth1></Debug-Log><TerminalIO/></Static>
     <Windows>
@@ -25,7 +25,7 @@
             <Factory>Workspace</Factory>
             <Session>
               
-            <NodeDict><ExpandedNode>SimpleBLEPeripheral</ExpandedNode><ExpandedNode>SimpleBLEPeripheral/APP</ExpandedNode><ExpandedNode>SimpleBLEPeripheral/HAL</ExpandedNode><ExpandedNode>SimpleBLEPeripheral/HAL/Target</ExpandedNode><ExpandedNode>SimpleBLEPeripheral/HAL/Target/CC2540EB</ExpandedNode><ExpandedNode>SimpleBLEPeripheral/HAL/Target/CC2540EB/Config</ExpandedNode><ExpandedNode>SimpleBLEPeripheral/HAL/Target/CC2540EB/Drivers</ExpandedNode><ExpandedNode>SimpleBLEPeripheral/Output</ExpandedNode></NodeDict></Session>
+            <NodeDict><ExpandedNode>SimpleBLEPeripheral</ExpandedNode><ExpandedNode>SimpleBLEPeripheral/APP</ExpandedNode><ExpandedNode>SimpleBLEPeripheral/HAL</ExpandedNode><ExpandedNode>SimpleBLEPeripheral/HAL/Target</ExpandedNode><ExpandedNode>SimpleBLEPeripheral/HAL/Target/CC2540EB</ExpandedNode><ExpandedNode>SimpleBLEPeripheral/HAL/Target/CC2540EB/Drivers</ExpandedNode><ExpandedNode>SimpleBLEPeripheral/HAL/Target/CC2540EB/Drivers/hal_adc.c</ExpandedNode><ExpandedNode>SimpleBLEPeripheral/HAL/Target/CC2540EB/Includes</ExpandedNode><ExpandedNode>SimpleBLEPeripheral/Output</ExpandedNode></NodeDict></Session>
           </Tab>
         </Tabs>
         
@@ -35,14 +35,14 @@
       
       
       
-    <Pane><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\..\Source\SimpleBLEPeripheral_Main.c</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>0</SelStart><SelEnd>0</SelEnd><XPos2>0</XPos2><YPos2>65</YPos2><SelStart2>3688</SelStart2><SelEnd2>3688</SelEnd2></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\..\..\..\..\Components\hal\target\CC2540EB\hal_adc.c</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>0</SelStart><SelEnd>0</SelEnd><XPos2>0</XPos2><YPos2>171</YPos2><SelStart2>7195</SelStart2><SelEnd2>7195</SelEnd2></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\..\Source\simpleBLEPeripheral.c</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>0</SelStart><SelEnd>0</SelEnd><XPos2>0</XPos2><YPos2>776</YPos2><SelStart2>26980</SelStart2><SelEnd2>26980</SelEnd2></Tab><ActiveTab>2</ActiveTab></Pane><ActivePane>0</ActivePane><Sizes><Pane><X>1000000</X><Y>1000000</Y></Pane></Sizes><SplitMode>1</SplitMode></Editor>
+    <Pane/><ActivePane>0</ActivePane><Sizes><Pane><X>1000000</X><Y>1000000</Y></Pane></Sizes><SplitMode>1</SplitMode></Editor>
     <Positions>
       
       
       
       
       
-    <Top><Row0><Sizes><Toolbar-005c0c38><key>iaridepm.enu1</key></Toolbar-005c0c38></Sizes></Row0></Top><Left><Row0><Sizes><Wnd0><Rect><Top>-2</Top><Left>-2</Left><Bottom>290</Bottom><Right>406</Right><x>-2</x><y>-2</y><xscreen>65</xscreen><yscreen>159</yscreen><sizeHorzCX>68856</sizeHorzCX><sizeHorzCY>323171</sizeHorzCY><sizeVertCX>432203</sizeVertCX><sizeVertCY>593496</sizeVertCY></Rect></Wnd0></Sizes></Row0></Left><Right><Row0><Sizes/></Row0></Right><Bottom><Row0><Sizes><Wnd1><Rect><Top>-2</Top><Left>-2</Left><Bottom>157</Bottom><Right>946</Right><x>-2</x><y>-2</y><xscreen>948</xscreen><yscreen>159</yscreen><sizeHorzCX>1004237</sizeHorzCX><sizeHorzCY>323171</sizeHorzCY><sizeVertCX>68856</sizeVertCX><sizeVertCY>323171</sizeVertCY></Rect></Wnd1></Sizes></Row0></Bottom><Float><Sizes/></Float></Positions>
+    <Top><Row0><Sizes><Toolbar-005c0c38><key>iaridepm.enu1</key></Toolbar-005c0c38></Sizes></Row0></Top><Left><Row0><Sizes><Wnd0><Rect><Top>-2</Top><Left>-2</Left><Bottom>290</Bottom><Right>417</Right><x>-2</x><y>-2</y><xscreen>65</xscreen><yscreen>159</yscreen><sizeHorzCX>67288</sizeHorzCX><sizeHorzCY>323171</sizeHorzCY><sizeVertCX>433747</sizeVertCX><sizeVertCY>593496</sizeVertCY></Rect></Wnd0></Sizes></Row0></Left><Right><Row0><Sizes/></Row0></Right><Bottom><Row0><Sizes><Wnd1><Rect><Top>-2</Top><Left>-2</Left><Bottom>157</Bottom><Right>968</Right><x>-2</x><y>-2</y><xscreen>970</xscreen><yscreen>159</yscreen><sizeHorzCX>1004141</sizeHorzCX><sizeHorzCY>323171</sizeHorzCY><sizeVertCX>67288</sizeVertCX><sizeVertCY>323171</sizeVertCY></Rect></Wnd1></Sizes></Row0></Bottom><Float><Sizes/></Float></Positions>
   </Desktop>
 </Workspace>
 

@@ -745,19 +745,23 @@ void ECG_Init()
   ECG_ADC_Init();
   //P1DIR |= 1; // P1.0 is output for debugging
   //P1 |= (1 << 0); // P1.0 is high
-  APCFG |= ((1 << 4) | (1 << 7) | (1 << 6)); // P0.4, P0.6, P0.7 are analog
+  // APCFG |= ((1 << 4) | (1 << 7) | (1 << 6)); // P0.4, P0.6, P0.7 are analog
+  APCFG |= ((1 << 4)|(1 << 7));  //P0.4 is analog 
+  // APCFG |= (1 << 4);
 }
 
 void ECG_ADC_Init()
 {
   ADCCON1 = (2 << 4); // trigger with Timer1 channel 0
-  //ADCCON2 = (3 << 6) | (3 << 4) | (4 << 0); // Vref = AIN6-AIN7; 12 bits ENOB; AIN4 pin input
-  // ADCCON2 = (3 << 4) | (4 << 0); // Vref = internal; 12 bits ENOB; AIN4 pin input
+  // ADCCON2 = (3 << 6) | (3 << 4) | (4 << 0); // Vref = AIN6-AIN7; 12 bits ENOB; AIN4 pin input
+  ADCCON2 = (3 << 4) | (4 << 0); // Vref = internal; 12 bits ENOB; AIN4 pin input
   //ADCCON2 = (1 << 6) | (3 << 4) | (6 << 0); // Vref = EXTERNAL on AIN7; 12 bits ENOB; AIN6 pin input
   // AIN7 is grounded. AIN6 is connected to P0.5
   // P0DIR &= ~(1 << 5); // P0.5 is hi-z
-  HalAdcInit();
-  HalAdcSetReference( HAL_ADC_REF_AVDD );
+     // P0DIR &= ~(1 << 7);
+  // HalAdcInit();
+  // HalAdcSetReference( HAL_ADC_REF_AIN7 );
+  // HalAdcSetReference( HAL_ADC_REF_AVDD );
    //HalAdcSetReference( HAL_ADC_REF_125V );
   // HalAdcSetReference( HAL_ADC_REF_DIFF );
 }
