@@ -1,0 +1,182 @@
+Netlist
+
+Exported from circuit1.sch at 8/19/14 8:32 PM
+
+EAGLE Version 6.6.0 Copyright (c) 1988-2014 CadSoft
+
+Net      Part     Pad      Pin        Sheet
+
+GND      C1       1        1          1
+         C17      1        1          1
+         C18      1        1          1
+         C221     1        1          1
+         C231     1        1          1
+         C321     2        2          1
+         C331     2        2          1
+         C401     1        1          1
+         R1       1        1          1
+         R16      1        1          1
+         R3       2        2          1
+         R301     1        1          1
+         U1       15       GND        1
+         U1       3        VSS        1
+         U2       1        I2C_GND    1
+         U2       EXP      GND        1
+         U3       14       AC/DC      1
+         U3       16       GND        1
+         U3       21       EP         1
+         U4       2        GND        1
+         U4       5        GND        1
+         U4       6        GND        1
+
+N$1      U2       26       RF_N       1
+         U4       3        BAL        1
+
+N$2      R301     2        2          1
+         U2       30       RBIAS      1
+
+N$3      C1       2        2          1
+         U2       20       RESET_N    1
+
+N$4      U2       25       RF_P       1
+         U4       4        BAL        1
+
+N$7      2450AT18A100E 1        ANTENNA    1
+         U4       1        UNBAL      1
+
+N$8      C401     2        2          1
+         U2       40       DCOUPL     1
+
+N$9      U1       2        EN         1
+         U2       5        P1_5       1
+
+N$10     R1       2        2          1
+         R2       1        1          1
+         U2       19       P0_0       1
+
+N$11     C221     2        2          1
+         U2       22       XOSC_Q1    1
+         XTAL1    2        2          1
+
+N$12     C231     2        2          1
+         U2       23       XOSC_Q2    1
+         XTAL1    1        1          1
+
+N$13     C321     1        1          1
+         U2       32       P2_4/XOSC32K_Q1 1
+         XTAL2    2        2          1
+
+N$14     C331     1        1          1
+         U2       33       P2_3/XOSC32K_Q2 1
+         XTAL2    1        1          1
+
+N$15     R22      1        1          1
+         U3       2        +IN        1
+
+N$17     C20      1        1          1
+         R26      1        1          1
+         R27      1        1          1
+         U3       5        RLD        1
+
+N$18     C22      2        2          1
+         U2       12       P0_7       1
+
+N$19     U1       1        A0         1
+         U2       6        P1_4       1
+
+N$20     U1       16       A1         1
+         U2       7        P1_3       1
+
+N$21     R23      1        1          1
+         U3       3        -IN        1
+
+N$22     C22      1        1          1
+         R19      1        1          1
+         U3       6        SW         1
+
+N$24     R3       1        1          1
+         R4       1        1          1
+         U2       18       P0_1       1
+
+N$25     U2       11       P1_0       1
+         U3       11       LDO-       1
+
+N$26     U2       9        P1_1       1
+         U3       12       LDO+       1
+
+N$27     U2       8        P1_2       1
+         U3       13       SDN        1
+
+N$29     C19      2        2          1
+         R20      2        2          1
+         R21      1        1          1
+
+N$31     R2       2        2          1
+         R4       2        2          1
+         U1       10       S4B        1
+
+N$32     U1       7        S4A        1
+         U2       17       P0_2       1
+
+N$37     R13      1        1          1
+         R14      2        2          1
+         U3       9        OPAMP-     1
+
+N$39     R22      2        2          1
+         R27      2        2          1
+         U1       9        DB         1
+
+N$40     R23      2        2          1
+         R26      2        2          1
+         U1       8        DA         1
+
+N$41     C16      2        2          1
+         R20      1        1          1
+         U3       7        OPAMP+     1
+
+N$42     C16      1        1          1
+         R13      2        2          1
+         U3       8        REFOUT     1
+
+N$43     C19      1        1          1
+         R14      1        1          1
+         U2       13       P0_6       1
+         U3       10       OUT        1
+
+N$46     C18      2        2          1
+         R15      2        2          1
+         R16      2        2          1
+         U3       18       REFIN      1
+
+N$49     R18      2        2          1
+         R21      2        2          1
+         U3       19       IAOUT      1
+
+N$50     C21      1        1          1
+         R17      2        2          1
+         U3       20       HPSENSE    1
+
+N$51     R17      1        1          1
+         R18      1        1          1
+         R19      2        2          1
+
+N$54     C20      2        2          1
+         U3       4        RLDFB      1
+
+N$57     C21      2        2          1
+         U3       1        HPDRIVE    1
+
+VSS      C17      2        2          1
+         R15      1        1          1
+         U1       14       VDD        1
+         U2       10       DVDD       1
+         U2       21       AVDD       1
+         U2       24       AVDD       1
+         U2       27       AVDD       1
+         U2       28       AVDD       1
+         U2       29       AVDD       1
+         U2       31       AVDD       1
+         U2       39       DVDD       1
+         U3       15       FR         1
+         U3       17       +VS        1
+

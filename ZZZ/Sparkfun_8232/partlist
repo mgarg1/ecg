@@ -1,0 +1,43 @@
+Partlist
+
+Exported from AD8232_Heart_Rate_Monitor.sch at 10/29/14 11:32 PM
+
+EAGLE Version 6.6.0 Copyright (c) 1988-2014 CadSoft
+
+Assembly variant: 
+
+Part     Value          Device                  Package              Library             Sheet
+
+C1       1.5nF          CAP0603-CAP             0603-CAP             SparkFun-Passives   1
+C2       1nF            CAP0603-CAP             0603-CAP             SparkFun-Passives   1
+C3       10nF           CAP0603-CAP             0603-CAP             SparkFun-Passives   1
+C4       0.33uF         CAP0805                 0805                 SparkFun-Passives   1
+C5       0.1uF          CAP0603-CAP             0603-CAP             SparkFun-Passives   1
+C6       0.33uF         CAP0805                 0805                 SparkFun-Passives   1
+C7       0.1uf          CAP0603-CAP             0603-CAP             SparkFun-Passives   1
+D1       RED            LED-RED0603             LED-0603             SparkFun-LED        1
+JP1                     M03PTH                  1X03                 SparkFun-Connectors 1
+JP2                     AUDIO-JACKSMD2          AUDIO-JACK-3.5MM-SMD SparkFun-Connectors 1
+JP3                     M06SIP                  1X06                 SparkFun-Connectors 1
+R1       10M            RESISTOR0603-RES        0603-RES             SparkFun-Passives   1
+R2       10M            RESISTOR0603-RES        0603-RES             SparkFun-Passives   1
+R3       180k           RESISTOR0603-RES        0603-RES             SparkFun-Passives   1
+R4       180k           RESISTOR0603-RES        0603-RES             SparkFun-Passives   1
+R5       360k           RESISTOR0603-RES        0603-RES             SparkFun-Passives   1
+R6       1M             RESISTOR0603-RES        0603-RES             SparkFun-Passives   1
+R7       1M             RESISTOR0603-RES        0603-RES             SparkFun-Passives   1
+R8       100k           RESISTOR0603-RES        0603-RES             SparkFun-Passives   1
+R9       1M             RESISTOR0603-RES        0603-RES             SparkFun-Passives   1
+R10      10M            RESISTOR0603-RES        0603-RES             SparkFun-Passives   1
+R11      10M            RESISTOR0603-RES        0603-RES             SparkFun-Passives   1
+R12      1.4M           RESISTOR0603-RES        0603-RES             SparkFun-Passives   1
+R13      10M            RESISTOR0603-RES        0603-RES             SparkFun-Passives   1
+R14      10M            RESISTOR0603-RES        0603-RES             SparkFun-Passives   1
+R15      10K            10KOHM1/10W1%(0603)0603 0603-RES             SparkFun-Resistors  1
+R16      1k             1K-1%                   0603-RES             SparkFun-Resistors  1
+R17      0              0OHM1/10W5%(0603)       0603                 SparkFun-Resistors  1
+R18      DNP            0OHM1/10W5%(0603)       0603                 SparkFun-Resistors  1
+R19      0              0OHM1/10W5%(0603)       0603                 SparkFun-Resistors  1
+R20      DNP            0OHM1/10W5%(0603)       0603                 SparkFun-Resistors  1
+SJ4      LED DISABLE    SOLDERJUMPERTRACE       SJ_2S-TRACE          SparkFun-Passives   1
+U1       AD8232         AD8232                  LFCSP_20             AD8232              1

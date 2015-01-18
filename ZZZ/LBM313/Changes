@@ -1,0 +1,9 @@
+rom Mohit’s original 11/9/2014 netlist
+Added C31 a 100uF cap across the battery
+Additional changes from physical design feedback (11/12/2014)
+1)      Removed net N$28 because there was nothing attached to it.
+2)      Removed battery (CR2032H) from netlist (only holder should be on netlist because it is the only component that gets wired in).
+3)      Changed battery holder pins:  G2.2 is tied to GND net, and G2.1, G2.3 are tied to VSS net.
+4)      Added JP2, a component for the 4 pads on bottom that will connect to Berkeley printed circuitry.  Pins 1 & 2 go to ECG pads and 3 and 4 to Thermister.
+5)      Added TP040 for the 0.040” testpoints.  These get treated like components.  I put one on each net requiring a testpoint and added two for GND.  8 testpoints total; TP01 – TP08
+Thanks for the battery holders and BT PWB.  I will make a small mockup of the holder and flap.
